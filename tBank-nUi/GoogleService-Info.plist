@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>995134339941-qjcap9cshfds4opnbi70ilorurlgcmh4.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.995134339941-qjcap9cshfds4opnbi70ilorurlgcmh4</string>
+	<key>API_KEY</key>
+	<string>AIzaSyAguB6rKjQ9sYkzNv7gwd69ioE_10krNNg</string>
+	<key>GCM_SENDER_ID</key>
+	<string>995134339941</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>jiwaszek.tBank-nUi</string>
+	<key>PROJECT_ID</key>
+	<string>tbank-24f0e</string>
+	<key>STORAGE_BUCKET</key>
+	<string>tbank-24f0e.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:995134339941:ios:4b74efcdf13052a068bf8c</string>
+	<key>DATABASE_URL</key>
+	<string>https://tbank-24f0e.firebaseio.com</string>
+</dict>
+</plist>

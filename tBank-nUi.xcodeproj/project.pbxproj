@@ -1,0 +1,785 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 51;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		0980F4D0DB18136CAE267D8F /* Pods_tBank_nUiTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 34EF6D439BF18321E554FEAC /* Pods_tBank_nUiTests.framework */; };
+		8099FE0DF28623D5E57A61EE /* Pods_tBank_nUi.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2BE05834DFEEF1702F008F8F /* Pods_tBank_nUi.framework */; };
+		8A0E7A662357865E00B3179E /* LoginPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E7A652357865E00B3179E /* LoginPageViewController.swift */; };
+		8A0E7A6823578A5900B3179E /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 8A0E7A6723578A5900B3179E /* GoogleService-Info.plist */; };
+		8A0E7A6A23578F3400B3179E /* Firebase.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A0E7A6923578F3400B3179E /* Firebase.swift */; };
+		8A9D5F95235F6E6B0071E509 /* NewTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */; };
+		8AB06EAA235795BC00DD551D /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */; };
+		8AB06EAC23579DA600DD551D /* TouchIdAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */; };
+		8AE13FB02353AEAA00E94DCA /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE13FAF2353AEAA00E94DCA /* AppDelegate.swift */; };
+		8AE13FB22353AEAA00E94DCA /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE13FB12353AEAA00E94DCA /* SceneDelegate.swift */; };
+		8AE13FB42353AEAA00E94DCA /* MainViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE13FB32353AEAA00E94DCA /* MainViewController.swift */; };
+		8AE13FB72353AEAA00E94DCA /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE13FB52353AEAA00E94DCA /* Main.storyboard */; };
+		8AE13FB92353AEAC00E94DCA /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8AE13FB82353AEAC00E94DCA /* Assets.xcassets */; };
+		8AE13FBC2353AEAC00E94DCA /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 8AE13FBA2353AEAC00E94DCA /* LaunchScreen.storyboard */; };
+		8AE13FC72353AEAC00E94DCA /* tBank_nUiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE13FC62353AEAC00E94DCA /* tBank_nUiTests.swift */; };
+		8AE13FD22353AEAC00E94DCA /* tBank_nUiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE13FD12353AEAC00E94DCA /* tBank_nUiUITests.swift */; };
+		8AE13FE02353B16F00E94DCA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE13FDF2353B16F00E94DCA /* Extensions.swift */; };
+		8AEF2B4C23550BBE005B127D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF2B4B23550BBE005B127D /* User.swift */; };
+		8AEF2B4E23550D51005B127D /* MoneyTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF2B4D23550D51005B127D /* MoneyTransfer.swift */; };
+		BE44E596D3653A26D6BE63F2 /* Pods_tBank_nUi_tBank_nUiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194E7A749923CCD6A5969566 /* Pods_tBank_nUi_tBank_nUiUITests.framework */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		8AE13FC32353AEAC00E94DCA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AE13FA42353AEAA00E94DCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AE13FAB2353AEAA00E94DCA;
+			remoteInfo = "tBank-nUi";
+		};
+		8AE13FCE2353AEAC00E94DCA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 8AE13FA42353AEAA00E94DCA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8AE13FAB2353AEAA00E94DCA;
+			remoteInfo = "tBank-nUi";
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		194E7A749923CCD6A5969566 /* Pods_tBank_nUi_tBank_nUiUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tBank_nUi_tBank_nUiUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		1DE8F2CD8C46E65C16B89FE8 /* Pods-tBank-nUi-tBank-nUiUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tBank-nUi-tBank-nUiUITests.debug.xcconfig"; path = "Target Support Files/Pods-tBank-nUi-tBank-nUiUITests/Pods-tBank-nUi-tBank-nUiUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		2BE05834DFEEF1702F008F8F /* Pods_tBank_nUi.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tBank_nUi.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		34EF6D439BF18321E554FEAC /* Pods_tBank_nUiTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_tBank_nUiTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		476AB4D0547F17CE73EEB6C6 /* Pods-tBank-nUi-tBank-nUiUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tBank-nUi-tBank-nUiUITests.release.xcconfig"; path = "Target Support Files/Pods-tBank-nUi-tBank-nUiUITests/Pods-tBank-nUi-tBank-nUiUITests.release.xcconfig"; sourceTree = "<group>"; };
+		875DA16CAA6E02B036C9408A /* Pods-tBank-nUiTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tBank-nUiTests.release.xcconfig"; path = "Target Support Files/Pods-tBank-nUiTests/Pods-tBank-nUiTests.release.xcconfig"; sourceTree = "<group>"; };
+		8A0E7A652357865E00B3179E /* LoginPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPageViewController.swift; sourceTree = "<group>"; };
+		8A0E7A6723578A5900B3179E /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		8A0E7A6923578F3400B3179E /* Firebase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Firebase.swift; sourceTree = "<group>"; };
+		8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransferViewController.swift; sourceTree = "<group>"; };
+		8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
+		8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIdAuthentication.swift; sourceTree = "<group>"; };
+		8AE13FAC2353AEAA00E94DCA /* tBank-nUi.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "tBank-nUi.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AE13FAF2353AEAA00E94DCA /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		8AE13FB12353AEAA00E94DCA /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
+		8AE13FB32353AEAA00E94DCA /* MainViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainViewController.swift; sourceTree = "<group>"; };
+		8AE13FB62353AEAA00E94DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		8AE13FB82353AEAC00E94DCA /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		8AE13FBB2353AEAC00E94DCA /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		8AE13FBD2353AEAC00E94DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AE13FC22353AEAC00E94DCA /* tBank-nUiTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tBank-nUiTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AE13FC62353AEAC00E94DCA /* tBank_nUiTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tBank_nUiTests.swift; sourceTree = "<group>"; };
+		8AE13FC82353AEAC00E94DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AE13FCD2353AEAC00E94DCA /* tBank-nUiUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "tBank-nUiUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		8AE13FD12353AEAC00E94DCA /* tBank_nUiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tBank_nUiUITests.swift; sourceTree = "<group>"; };
+		8AE13FD32353AEAC00E94DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8AE13FDF2353B16F00E94DCA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8AEF2B4B23550BBE005B127D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		8AEF2B4D23550D51005B127D /* MoneyTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransfer.swift; sourceTree = "<group>"; };
+		CC5BA26409889CBB7D66102E /* Pods-tBank-nUi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tBank-nUi.release.xcconfig"; path = "Target Support Files/Pods-tBank-nUi/Pods-tBank-nUi.release.xcconfig"; sourceTree = "<group>"; };
+		DC27FDE2394D64019E7D8341 /* Pods-tBank-nUi.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tBank-nUi.debug.xcconfig"; path = "Target Support Files/Pods-tBank-nUi/Pods-tBank-nUi.debug.xcconfig"; sourceTree = "<group>"; };
+		FAE6D444ED7DD4B2CF691FAD /* Pods-tBank-nUiTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tBank-nUiTests.debug.xcconfig"; path = "Target Support Files/Pods-tBank-nUiTests/Pods-tBank-nUiTests.debug.xcconfig"; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		8AE13FA92353AEAA00E94DCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8099FE0DF28623D5E57A61EE /* Pods_tBank_nUi.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE13FBF2353AEAC00E94DCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				0980F4D0DB18136CAE267D8F /* Pods_tBank_nUiTests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE13FCA2353AEAC00E94DCA /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				BE44E596D3653A26D6BE63F2 /* Pods_tBank_nUi_tBank_nUiUITests.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		8AE13FA32353AEAA00E94DCA = {
+			isa = PBXGroup;
+			children = (
+				8AE13FAE2353AEAA00E94DCA /* tBank-nUi */,
+				8AE13FC52353AEAC00E94DCA /* tBank-nUiTests */,
+				8AE13FD02353AEAC00E94DCA /* tBank-nUiUITests */,
+				8AE13FAD2353AEAA00E94DCA /* Products */,
+				FFAB058EA959FA66276AFF50 /* Pods */,
+				C94498F0DFBA6C5089024B48 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		8AE13FAD2353AEAA00E94DCA /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				8AE13FAC2353AEAA00E94DCA /* tBank-nUi.app */,
+				8AE13FC22353AEAC00E94DCA /* tBank-nUiTests.xctest */,
+				8AE13FCD2353AEAC00E94DCA /* tBank-nUiUITests.xctest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		8AE13FAE2353AEAA00E94DCA /* tBank-nUi */ = {
+			isa = PBXGroup;
+			children = (
+				8AE13FAF2353AEAA00E94DCA /* AppDelegate.swift */,
+				8AE13FB12353AEAA00E94DCA /* SceneDelegate.swift */,
+				8A0E7A6923578F3400B3179E /* Firebase.swift */,
+				8AEF2B4B23550BBE005B127D /* User.swift */,
+				8A0E7A652357865E00B3179E /* LoginPageViewController.swift */,
+				8AE13FB32353AEAA00E94DCA /* MainViewController.swift */,
+				8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */,
+				8AEF2B4D23550D51005B127D /* MoneyTransfer.swift */,
+				8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */,
+				8AE13FDF2353B16F00E94DCA /* Extensions.swift */,
+				8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */,
+				8AE13FB52353AEAA00E94DCA /* Main.storyboard */,
+				8AE13FB82353AEAC00E94DCA /* Assets.xcassets */,
+				8AE13FBA2353AEAC00E94DCA /* LaunchScreen.storyboard */,
+				8A0E7A6723578A5900B3179E /* GoogleService-Info.plist */,
+				8AE13FBD2353AEAC00E94DCA /* Info.plist */,
+			);
+			path = "tBank-nUi";
+			sourceTree = "<group>";
+		};
+		8AE13FC52353AEAC00E94DCA /* tBank-nUiTests */ = {
+			isa = PBXGroup;
+			children = (
+				8AE13FC62353AEAC00E94DCA /* tBank_nUiTests.swift */,
+				8AE13FC82353AEAC00E94DCA /* Info.plist */,
+			);
+			path = "tBank-nUiTests";
+			sourceTree = "<group>";
+		};
+		8AE13FD02353AEAC00E94DCA /* tBank-nUiUITests */ = {
+			isa = PBXGroup;
+			children = (
+				8AE13FD12353AEAC00E94DCA /* tBank_nUiUITests.swift */,
+				8AE13FD32353AEAC00E94DCA /* Info.plist */,
+			);
+			path = "tBank-nUiUITests";
+			sourceTree = "<group>";
+		};
+		C94498F0DFBA6C5089024B48 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2BE05834DFEEF1702F008F8F /* Pods_tBank_nUi.framework */,
+				194E7A749923CCD6A5969566 /* Pods_tBank_nUi_tBank_nUiUITests.framework */,
+				34EF6D439BF18321E554FEAC /* Pods_tBank_nUiTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		FFAB058EA959FA66276AFF50 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				DC27FDE2394D64019E7D8341 /* Pods-tBank-nUi.debug.xcconfig */,
+				CC5BA26409889CBB7D66102E /* Pods-tBank-nUi.release.xcconfig */,
+				1DE8F2CD8C46E65C16B89FE8 /* Pods-tBank-nUi-tBank-nUiUITests.debug.xcconfig */,
+				476AB4D0547F17CE73EEB6C6 /* Pods-tBank-nUi-tBank-nUiUITests.release.xcconfig */,
+				FAE6D444ED7DD4B2CF691FAD /* Pods-tBank-nUiTests.debug.xcconfig */,
+				875DA16CAA6E02B036C9408A /* Pods-tBank-nUiTests.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		8AE13FAB2353AEAA00E94DCA /* tBank-nUi */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AE13FD62353AEAC00E94DCA /* Build configuration list for PBXNativeTarget "tBank-nUi" */;
+			buildPhases = (
+				E7905B3F7BAEC68A67B21560 /* [CP] Check Pods Manifest.lock */,
+				8AE13FA82353AEAA00E94DCA /* Sources */,
+				8AE13FA92353AEAA00E94DCA /* Frameworks */,
+				8AE13FAA2353AEAA00E94DCA /* Resources */,
+				3B6FC1701F519EB8453F3881 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "tBank-nUi";
+			productName = "tBank-nUi";
+			productReference = 8AE13FAC2353AEAA00E94DCA /* tBank-nUi.app */;
+			productType = "com.apple.product-type.application";
+		};
+		8AE13FC12353AEAC00E94DCA /* tBank-nUiTests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AE13FD92353AEAC00E94DCA /* Build configuration list for PBXNativeTarget "tBank-nUiTests" */;
+			buildPhases = (
+				55866DE1BEDEDE91FDDEFC76 /* [CP] Check Pods Manifest.lock */,
+				8AE13FBE2353AEAC00E94DCA /* Sources */,
+				8AE13FBF2353AEAC00E94DCA /* Frameworks */,
+				8AE13FC02353AEAC00E94DCA /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8AE13FC42353AEAC00E94DCA /* PBXTargetDependency */,
+			);
+			name = "tBank-nUiTests";
+			productName = "tBank-nUiTests";
+			productReference = 8AE13FC22353AEAC00E94DCA /* tBank-nUiTests.xctest */;
+			productType = "com.apple.product-type.bundle.unit-test";
+		};
+		8AE13FCC2353AEAC00E94DCA /* tBank-nUiUITests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 8AE13FDC2353AEAC00E94DCA /* Build configuration list for PBXNativeTarget "tBank-nUiUITests" */;
+			buildPhases = (
+				266ED60E71C5D8D84F1C2FF5 /* [CP] Check Pods Manifest.lock */,
+				8AE13FC92353AEAC00E94DCA /* Sources */,
+				8AE13FCA2353AEAC00E94DCA /* Frameworks */,
+				8AE13FCB2353AEAC00E94DCA /* Resources */,
+				6D0B41A5567AA803C9BB9C04 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				8AE13FCF2353AEAC00E94DCA /* PBXTargetDependency */,
+			);
+			name = "tBank-nUiUITests";
+			productName = "tBank-nUiUITests";
+			productReference = 8AE13FCD2353AEAC00E94DCA /* tBank-nUiUITests.xctest */;
+			productType = "com.apple.product-type.bundle.ui-testing";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		8AE13FA42353AEAA00E94DCA /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1100;
+				LastUpgradeCheck = 1100;
+				ORGANIZATIONNAME = "Jakub Iwaszek";
+				TargetAttributes = {
+					8AE13FAB2353AEAA00E94DCA = {
+						CreatedOnToolsVersion = 11.0;
+					};
+					8AE13FC12353AEAC00E94DCA = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 8AE13FAB2353AEAA00E94DCA;
+					};
+					8AE13FCC2353AEAC00E94DCA = {
+						CreatedOnToolsVersion = 11.0;
+						TestTargetID = 8AE13FAB2353AEAA00E94DCA;
+					};
+				};
+			};
+			buildConfigurationList = 8AE13FA72353AEAA00E94DCA /* Build configuration list for PBXProject "tBank-nUi" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 8AE13FA32353AEAA00E94DCA;
+			productRefGroup = 8AE13FAD2353AEAA00E94DCA /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				8AE13FAB2353AEAA00E94DCA /* tBank-nUi */,
+				8AE13FC12353AEAC00E94DCA /* tBank-nUiTests */,
+				8AE13FCC2353AEAC00E94DCA /* tBank-nUiUITests */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		8AE13FAA2353AEAA00E94DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AE13FBC2353AEAC00E94DCA /* LaunchScreen.storyboard in Resources */,
+				8A0E7A6823578A5900B3179E /* GoogleService-Info.plist in Resources */,
+				8AE13FB92353AEAC00E94DCA /* Assets.xcassets in Resources */,
+				8AE13FB72353AEAA00E94DCA /* Main.storyboard in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE13FC02353AEAC00E94DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE13FCB2353AEAC00E94DCA /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		266ED60E71C5D8D84F1C2FF5 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tBank-nUi-tBank-nUiUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		3B6FC1701F519EB8453F3881 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tBank-nUi/Pods-tBank-nUi-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tBank-nUi/Pods-tBank-nUi-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tBank-nUi/Pods-tBank-nUi-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		55866DE1BEDEDE91FDDEFC76 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tBank-nUiTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		6D0B41A5567AA803C9BB9C04 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tBank-nUi-tBank-nUiUITests/Pods-tBank-nUi-tBank-nUiUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-tBank-nUi-tBank-nUiUITests/Pods-tBank-nUi-tBank-nUiUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-tBank-nUi-tBank-nUiUITests/Pods-tBank-nUi-tBank-nUiUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E7905B3F7BAEC68A67B21560 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-tBank-nUi-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		8AE13FA82353AEAA00E94DCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AB06EAC23579DA600DD551D /* TouchIdAuthentication.swift in Sources */,
+				8AE13FB42353AEAA00E94DCA /* MainViewController.swift in Sources */,
+				8AE13FB02353AEAA00E94DCA /* AppDelegate.swift in Sources */,
+				8AE13FB22353AEAA00E94DCA /* SceneDelegate.swift in Sources */,
+				8AEF2B4C23550BBE005B127D /* User.swift in Sources */,
+				8AE13FE02353B16F00E94DCA /* Extensions.swift in Sources */,
+				8AB06EAA235795BC00DD551D /* KeychainPasswordItem.swift in Sources */,
+				8A9D5F95235F6E6B0071E509 /* NewTransferViewController.swift in Sources */,
+				8A0E7A662357865E00B3179E /* LoginPageViewController.swift in Sources */,
+				8AEF2B4E23550D51005B127D /* MoneyTransfer.swift in Sources */,
+				8A0E7A6A23578F3400B3179E /* Firebase.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE13FBE2353AEAC00E94DCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AE13FC72353AEAC00E94DCA /* tBank_nUiTests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		8AE13FC92353AEAC00E94DCA /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				8AE13FD22353AEAC00E94DCA /* tBank_nUiUITests.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		8AE13FC42353AEAC00E94DCA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AE13FAB2353AEAA00E94DCA /* tBank-nUi */;
+			targetProxy = 8AE13FC32353AEAC00E94DCA /* PBXContainerItemProxy */;
+		};
+		8AE13FCF2353AEAC00E94DCA /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8AE13FAB2353AEAA00E94DCA /* tBank-nUi */;
+			targetProxy = 8AE13FCE2353AEAC00E94DCA /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		8AE13FB52353AEAA00E94DCA /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AE13FB62353AEAA00E94DCA /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		8AE13FBA2353AEAC00E94DCA /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				8AE13FBB2353AEAC00E94DCA /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		8AE13FD42353AEAC00E94DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		8AE13FD52353AEAC00E94DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		8AE13FD72353AEAC00E94DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = DC27FDE2394D64019E7D8341 /* Pods-tBank-nUi.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FN745B5UPH;
+				INFOPLIST_FILE = "tBank-nUi/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jiwaszek.tBank-nUi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		8AE13FD82353AEAC00E94DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = CC5BA26409889CBB7D66102E /* Pods-tBank-nUi.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FN745B5UPH;
+				INFOPLIST_FILE = "tBank-nUi/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jiwaszek.tBank-nUi";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		8AE13FDA2353AEAC00E94DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FAE6D444ED7DD4B2CF691FAD /* Pods-tBank-nUiTests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FN745B5UPH;
+				INFOPLIST_FILE = "tBank-nUiTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jiwaszek.tBank-nUiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tBank-nUi.app/tBank-nUi";
+			};
+			name = Debug;
+		};
+		8AE13FDB2353AEAC00E94DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 875DA16CAA6E02B036C9408A /* Pods-tBank-nUiTests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FN745B5UPH;
+				INFOPLIST_FILE = "tBank-nUiTests/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jiwaszek.tBank-nUiTests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/tBank-nUi.app/tBank-nUi";
+			};
+			name = Release;
+		};
+		8AE13FDD2353AEAC00E94DCA /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 1DE8F2CD8C46E65C16B89FE8 /* Pods-tBank-nUi-tBank-nUiUITests.debug.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FN745B5UPH;
+				INFOPLIST_FILE = "tBank-nUiUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jiwaszek.tBank-nUiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "tBank-nUi";
+			};
+			name = Debug;
+		};
+		8AE13FDE2353AEAC00E94DCA /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 476AB4D0547F17CE73EEB6C6 /* Pods-tBank-nUi-tBank-nUiUITests.release.xcconfig */;
+			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = FN745B5UPH;
+				INFOPLIST_FILE = "tBank-nUiUITests/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+					"@loader_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "jiwaszek.tBank-nUiUITests";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				TEST_TARGET_NAME = "tBank-nUi";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		8AE13FA72353AEAA00E94DCA /* Build configuration list for PBXProject "tBank-nUi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AE13FD42353AEAC00E94DCA /* Debug */,
+				8AE13FD52353AEAC00E94DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AE13FD62353AEAC00E94DCA /* Build configuration list for PBXNativeTarget "tBank-nUi" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AE13FD72353AEAC00E94DCA /* Debug */,
+				8AE13FD82353AEAC00E94DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AE13FD92353AEAC00E94DCA /* Build configuration list for PBXNativeTarget "tBank-nUiTests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AE13FDA2353AEAC00E94DCA /* Debug */,
+				8AE13FDB2353AEAC00E94DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		8AE13FDC2353AEAC00E94DCA /* Build configuration list for PBXNativeTarget "tBank-nUiUITests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				8AE13FDD2353AEAC00E94DCA /* Debug */,
+				8AE13FDE2353AEAC00E94DCA /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 8AE13FA42353AEAA00E94DCA /* Project object */;
+}
