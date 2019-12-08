@@ -15,4 +15,12 @@ class User: NSObject {
     @objc var id: String?
     @objc var money: NSNumber?
     @objc var bankAccountNumber: String?
+    
+    func translateBankAccountNumber() {
+        //zmienic to
+        bankAccountNumber!.insert("-", at: bankAccountNumber!.index(bankAccountNumber!.startIndex, offsetBy: 4))
+        bankAccountNumber!.insert("-", at: bankAccountNumber!.index(bankAccountNumber!.startIndex, offsetBy: 9))
+        bankAccountNumber!.insert("-", at: bankAccountNumber!.index(bankAccountNumber!.startIndex, offsetBy: 14))
+    }
+    
 }

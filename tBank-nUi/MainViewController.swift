@@ -15,11 +15,22 @@ class MainViewController: UIViewController {
     @IBOutlet weak var userAccountNumberLabel: UILabel!
     @IBOutlet weak var userMoneyLabel: UILabel!
     @IBOutlet weak var userProfileImageView: UIImageView!
+    @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var buttonView: FloatingButtonView!
+    
+    
+    var user: User! = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateBackgroundImage(imageName: "redbackground.png")
-        updateView()
+        tableView.estimatedRowHeight = 90
+        tableView.rowHeight = UITableView.automaticDimension
+        tableView.tableFooterView = UIView()
+        tableView.dataSource = self
+        tableView.delegate = self
+        buttonView.layer.cornerRadius = 30
+        //updateBackgroundImage(imageName: "redbackground.png")
+        //updateView()
         updateData()
     }
     
@@ -37,13 +48,30 @@ class MainViewController: UIViewController {
             self.userNameLabel.text = userNameInfo
             let money = user.money as! Float
             self.userMoneyLabel.text = String(money) + " $"
-            var bankAccountNumber = user.bankAccountNumber!
-            bankAccountNumber.insert("-", at: bankAccountNumber.index(bankAccountNumber.startIndex, offsetBy: 4))
+            user.translateBankAccountNumber()
+            var bankAccountNumber = user.bankAccountNumber! //!!
             self.userAccountNumberLabel.text = bankAccountNumber
+            self.user = user
+            self.tableView.reloadData()
         }
 
     }
 
 
+}
+
+extension MainViewController: UITableViewDataSource, UITableViewDelegate {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+           return 1
+       }
+       
+       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryContactCell", for: indexPath) as! HistoryContactCell
+        if user != nil {
+            cell.model = Transaction(amount: 15, user: user)
+        }
+        return cell
+       }
+       
 }
 
