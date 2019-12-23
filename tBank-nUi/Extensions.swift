@@ -40,3 +40,29 @@ extension UIView
         NSLayoutConstraint(item: self, attribute: .bottom, relatedBy: .equal, toItem: container, attribute: .bottom, multiplier: 1.0, constant: 0).isActive = true
     }
 }
+
+extension UITextField {
+
+    public func setText(to newText: String, preservingCursor: Bool) {
+        if preservingCursor {
+            let cursorPosition = offset(from: beginningOfDocument, to: selectedTextRange!.start) + newText.count - (text?.count ?? 0)
+            text = newText
+            if let newPosition = self.position(from: beginningOfDocument, offset: cursorPosition) {
+                selectedTextRange = textRange(from: newPosition, to: newPosition)
+            }
+        }
+        else {
+            text = newText
+        }
+    }
+
+}
+
+extension String {
+    func grouping(every groupSize: String.IndexDistance, with separator: Character) -> String {
+       let cleanedUpCopy = replacingOccurrences(of: String(separator), with: "")
+       return String(cleanedUpCopy.enumerated().map() {
+            $0.offset % groupSize == 0 ? [separator, $0.element] : [$0.element]
+       }.joined().dropFirst())
+    }
+}

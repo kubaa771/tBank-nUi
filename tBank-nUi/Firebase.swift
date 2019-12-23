@@ -66,4 +66,13 @@ class FirebaseBackend {
            
     }
     
+    func getUserByHisBankAccountNumber(){
+        let ref = Database.database().reference().child("users")
+        ref.observe(.value) { (snapshot) in
+            let allUsers = snapshot.children
+            let sth = allUsers.allObjects as? [String : Any]
+            
+        }
+    }
+    
 }

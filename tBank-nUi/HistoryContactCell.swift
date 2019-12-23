@@ -38,10 +38,10 @@ class HistoryContactCell: UITableViewCell {
         roundView.layer.cornerRadius = 30
         roundView.clipsToBounds = true
         roundView.contentMode = UIView.ContentMode.scaleAspectFill
-        let name = transaction.user.name ?? transaction.user.email
-        let surname = transaction.user.surname ?? ""
-        nameLabel.text = name! + " " + surname
-        accountNumberLabel.text = transaction.user.bankAccountNumber
+        //let name = transaction.user.name ?? transaction.user.email
+        //let surname = transaction.user.surname ?? ""
+        //nameLabel.text = name! + " " + surname
+        //accountNumberLabel.text = transaction.user.bankAccountNumber
         balanceLabel.text = "-15,43"
     }
 

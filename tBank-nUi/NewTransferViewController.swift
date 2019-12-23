@@ -8,23 +8,77 @@
 
 import UIKit
 
-class NewTransferViewController: UIViewController {
+class NewTransferViewController: UIViewController, UITextFieldDelegate {
 
+    @IBOutlet weak var receiverNameTextField: UITextField!
+    @IBOutlet weak var receiverAccNumberTextField: UITextField!
+    @IBOutlet weak var transferTitleTextField: UITextField!
+    @IBOutlet weak var transferDateTextField: UITextField!
+    @IBOutlet weak var transferAmountTextField: UITextField!
+    
+    let datePicker = UIDatePicker()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        datePicker.addTarget(nil, action: #selector(datePickerChanged), for: .valueChanged)
+        transferDateTextField.inputView = datePicker
+        receiverAccNumberTextField.delegate = self
+        FirebaseBackend.shared.getUserByHisBankAccountNumber()
     }
     
+    @objc func datePickerChanged() {
+        let dateFormatter = DateFormatter()
 
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+        dateFormatter.dateStyle = DateFormatter.Style.short
+        dateFormatter.timeStyle = DateFormatter.Style.short
+        
+        
+        transferDateTextField.text = dateFormatter.string(from: datePicker.date)
     }
-    */
+    
+    @IBAction func accountNumberChanged(_ sender: UITextField) {
+        /*guard var inputText = sender.text else { return }
+        let filteredInputText = inputText.components(separatedBy: "-").joined()
+        let symbolsInInputText = inputText.filter({$0.isPunctuation})
+        let needOfFourNumbers = inputText.components(separatedBy: "-")//[0].count == 4
+        let smth = needOfFourNumbers.compactMap { (string) -> Bool in
+            if string.count == 4 {
+                return true
+            } else {
+                return false
+            }
+        }
+        
+        print(needOfFourNumbers)
+        print(smth)
+        
+        if filteredInputText.count >= 16 {
+            return
+        }
+        
+        if filteredInputText.count % 4 == 0, filteredInputText.count <= 12, symbolsInInputText.count < 3, inputText.last?.isNumber ?? false {
+            //inputText.insert("-", at: inputText!.index(inputText!.startIndex, offsetBy: 4))
+            receiverAccNumberTextField.text?.append("-")
+            
+        } else if inputText.last?.isPunctuation ?? false{
+            receiverAccNumberTextField.text?.removeLast()
+        } else if needOfFourNumbers.last!.count > 4 {
+            let stIndex = receiverAccNumberTextField.text?.index(receiverAccNumberTextField.text!.endIndex, offsetBy: -1)
+            print(stIndex)
+            receiverAccNumberTextField.text?.insert("-", at: stIndex!)
+        }*/
+    }
+    
+    func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
+        guard let currentText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) else { return true }
 
+        if textField == receiverAccNumberTextField  {
+
+            textField.setText(to: currentText.grouping(every: 4, with: "-"), preservingCursor: true)
+
+            return false
+        }
+        return true
+    }
+    
 }

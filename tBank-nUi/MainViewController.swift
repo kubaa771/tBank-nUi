@@ -29,6 +29,7 @@ class MainViewController: UIViewController {
         tableView.dataSource = self
         tableView.delegate = self
         buttonView.layer.cornerRadius = 30
+        buttonView.tappedClosure = newTransferButtonSegueClosure
         //updateBackgroundImage(imageName: "redbackground.png")
         //updateView()
         updateData()
@@ -56,6 +57,16 @@ class MainViewController: UIViewController {
         }
 
     }
+    
+    func newTransferButtonSegueClosure() {
+        performSegue(withIdentifier: "newTransferSegue", sender: nil)
+    }
+    
+    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "newTransferSegue" {
+            let vc = segue.destination as! NewTransferViewController
+        }
+    }*/
 
 
 }
@@ -68,7 +79,7 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryContactCell", for: indexPath) as! HistoryContactCell
         if user != nil {
-            cell.model = Transaction(amount: 15, user: user)
+            //cell.model = Transaction(amount: 15, user: user)
         }
         return cell
        }

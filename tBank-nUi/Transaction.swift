@@ -8,7 +8,14 @@
 
 import Foundation
 
-struct Transaction {
-    let amount: Int
-    let user: User
+class Transaction {
+    var amount: Int?
+    var fromUser: User?
+    var toUserBankAccountNumber: String?
+    var transactionDate: NSDate?
+    var transactionTitle: String?
+    
+    func getUserByBankAccountNumber() {
+        //
+    }
 }
