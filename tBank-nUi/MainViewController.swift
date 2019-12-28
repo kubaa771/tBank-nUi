@@ -33,6 +33,8 @@ class MainViewController: UIViewController {
         //updateBackgroundImage(imageName: "redbackground.png")
         //updateView()
         updateData()
+        //FirebaseBackend.shared.addExampleUserData()
+        
     }
     
     func updateView() {
@@ -62,11 +64,12 @@ class MainViewController: UIViewController {
         performSegue(withIdentifier: "newTransferSegue", sender: nil)
     }
     
-    /*override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newTransferSegue" {
             let vc = segue.destination as! NewTransferViewController
+            vc.user = self.user
         }
-    }*/
+    }
 
 
 }

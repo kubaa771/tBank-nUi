@@ -9,13 +9,13 @@
 import Foundation
 
 class Transaction {
-    var amount: Int?
-    var fromUser: User?
-    var toUserBankAccountNumber: String?
-    var transactionDate: NSDate?
+    var amount: NSNumber?
+    var senderBankAccountNumber: String?
+    var receiverBankAccountNumber: String?
+    var transactionDate: NSNumber?
     var transactionTitle: String?
     
     func getUserByBankAccountNumber() {
-        //
+        // jezeli toUser bedzie potrzebny gdzies indziej niz w wygladzie celki
     }
 }

@@ -34,14 +34,16 @@ class HistoryContactCell: UITableViewCell {
     }
     
     func customize(transaction: Transaction) {
+        FirebaseBackend.shared.getUserBy(bankAccountNumber: transaction.receiverBankAccountNumber!) { (receiver) in
+            let name = receiver.name ?? receiver.email
+            let surname = receiver.surname ?? ""
+            self.nameLabel.text = name! + " " + surname
+        }
         roundView.layer.masksToBounds = false
         roundView.layer.cornerRadius = 30
         roundView.clipsToBounds = true
         roundView.contentMode = UIView.ContentMode.scaleAspectFill
-        //let name = transaction.user.name ?? transaction.user.email
-        //let surname = transaction.user.surname ?? ""
-        //nameLabel.text = name! + " " + surname
-        //accountNumberLabel.text = transaction.user.bankAccountNumber
+        accountNumberLabel.text = transaction.receiverBankAccountNumber
         balanceLabel.text = "-15,43"
     }
 

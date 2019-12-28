@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import FirebaseAuth
 
 class NewTransferViewController: UIViewController, UITextFieldDelegate {
 
@@ -17,13 +18,14 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate {
     @IBOutlet weak var transferAmountTextField: UITextField!
     
     let datePicker = UIDatePicker()
+    var user: User? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
         datePicker.addTarget(nil, action: #selector(datePickerChanged), for: .valueChanged)
         transferDateTextField.inputView = datePicker
         receiverAccNumberTextField.delegate = self
-        FirebaseBackend.shared.getUserByHisBankAccountNumber()
+        
     }
     
     @objc func datePickerChanged() {
@@ -79,6 +81,25 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate {
             return false
         }
         return true
+    }
+    
+    
+    @IBAction func sendTransactionButtonAction(_ sender: UIButton) {
+        guard let filteredInputText = receiverAccNumberTextField.text?.components(separatedBy: "-").joined() else {
+            print("receiver's bank account number cannot be empty")
+            return
+        }
+        print(filteredInputText.count)
+        if receiverNameTextField.text != nil, transferAmountTextField.text != nil, filteredInputText.count == 16 {
+            if let amount = Float(transferAmountTextField.text!) {
+                print(amount)
+                //w transaction date ustawic date z DatePicker() - wykonywany przelew kiedy ustawiona
+                let newTransfer: [String: Any] = ["amount" : amount, "senderBankAccountNumber" : user?.bankAccountNumber, "receiverBankAccountNumber" : filteredInputText, "transactionDate" : NSNumber(value: NSDate().timeIntervalSince1970), "transactionTitle" : transferTitleTextField]
+                
+            } else {
+                print("your price value is not a number")
+            }
+        }
     }
     
 }
