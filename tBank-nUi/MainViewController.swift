@@ -66,7 +66,8 @@ class MainViewController: UIViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "newTransferSegue" {
-            let vc = segue.destination as! NewTransferViewController
+            let nvc = segue.destination as! UINavigationController
+            let vc = nvc.topViewController as! NewTransferViewController
             vc.user = self.user
         }
     }

@@ -87,4 +87,32 @@ class FirebaseBackend {
         
     }
     
+    func manageNewMoneyTransfer(values: [String: Any], sender: User) {
+        let ref = Database.database().reference().child("transactions")
+        ref.updateChildValues(values) { (err, dbref) in
+            if err != nil {
+                print(err?.localizedDescription as Any)
+                return
+            }
+            
+            guard let transactionId = ref.key else { return }
+            
+            guard let receiverBankAccountNumber = values["receiverBankAccountNumber"] as? String else { return }
+            
+            self.getUserBy(bankAccountNumber: receiverBankAccountNumber) { (receiver) in
+                guard let senderId = sender.id else { return }
+                guard let receiverId = receiver.id else { return }
+                
+                let senderTransactionRef = Database.database().reference().child("user-transactions").child(senderId).child(transactionId)
+                senderTransactionRef.setValue(1)
+                
+                let receiverTransactionRef = Database.database().reference().child("user-transactions").child(receiverId).child(transactionId)
+                receiverTransactionRef.setValue(1)
+            }
+            
+            
+            
+        }
+    }
+    
 }

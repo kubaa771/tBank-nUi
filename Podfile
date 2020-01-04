@@ -6,7 +6,6 @@ target 'tBank-nUi' do
   use_frameworks!
 
   # Pods for tBank-nUi
-  pod 'Firebase/Analytics'
 pod 'Firebase/Auth'
 pod 'Firebase/Database'
 

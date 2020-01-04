@@ -69,14 +69,21 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate {
             print(stIndex)
             receiverAccNumberTextField.text?.insert("-", at: stIndex!)
         }*/
+        
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         guard let currentText = (textField.text as NSString?)?.replacingCharacters(in: range, with: string) else { return true }
 
         if textField == receiverAccNumberTextField  {
-
-            textField.setText(to: currentText.grouping(every: 4, with: "-"), preservingCursor: true)
+            let textFieldTextCount = textField.text!.count
+            if textFieldTextCount < 19 {
+                textField.setText(to: currentText.grouping(every: 4, with: "-"), preservingCursor: true)
+            } else if textFieldTextCount >= 19 {
+                textField.deleteBackward()
+                
+            }
+            
 
             return false
         }
@@ -85,6 +92,9 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate {
     
     
     @IBAction func sendTransactionButtonAction(_ sender: UIButton) {
+        guard let user = user else {
+            return
+        }
         guard let filteredInputText = receiverAccNumberTextField.text?.components(separatedBy: "-").joined() else {
             print("receiver's bank account number cannot be empty")
             return
@@ -94,7 +104,7 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate {
             if let amount = Float(transferAmountTextField.text!) {
                 print(amount)
                 //w transaction date ustawic date z DatePicker() - wykonywany przelew kiedy ustawiona
-                let newTransfer: [String: Any] = ["amount" : amount, "senderBankAccountNumber" : user?.bankAccountNumber, "receiverBankAccountNumber" : filteredInputText, "transactionDate" : NSNumber(value: NSDate().timeIntervalSince1970), "transactionTitle" : transferTitleTextField]
+                let newTransfer: [String: Any] = ["amount" : amount, "senderBankAccountNumber" : user.bankAccountNumber, "receiverBankAccountNumber" : filteredInputText, "transactionDate" : NSNumber(value: NSDate().timeIntervalSince1970), "transactionTitle" : transferTitleTextField]
                 
             } else {
                 print("your price value is not a number")
