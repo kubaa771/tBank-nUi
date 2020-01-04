@@ -13,7 +13,9 @@ struct KeychainConfiguration {
   static let accessGroup: String? = nil
 }
 
-class LoginPageViewController: UIViewController {
+class LoginPageViewController: UIViewController, Storyboarded {
+    
+    weak var coordinator: MainCoordinator?
     
     let touchMe = BiometricIdAuth()
     
@@ -103,10 +105,12 @@ class LoginPageViewController: UIViewController {
                     
                     UserDefaults.standard.set(true, forKey: "hasLoginKey")
                     self.loginButton.tag = self.loginButtonTag
-                    self.performSegue(withIdentifier: "dismissLogin", sender: self)
+                    //self.performSegue(withIdentifier: "dismissLogin", sender: self)
+                    self.coordinator?.successfulLogin()
                     
                 } else if sender.tag == self.loginButtonTag {
-                    self.performSegue(withIdentifier: "dismissLogin", sender: self)
+                    self.coordinator?.successfulLogin()
+                    //self.performSegue(withIdentifier: "dismissLogin", sender: self)
                     /*if self.checkLogin(username: newAccountName, password: newPassword) {
                         self.performSegue(withIdentifier: "dismissLogin", sender: self)
                     } else {
@@ -128,7 +132,7 @@ class LoginPageViewController: UIViewController {
     @IBAction func touchIdLoginAction(_ sender: UIButton) {
         touchMe.authenticateUser() { [weak self] in
             self?.autoInsertLoginData()
-          //self?.performSegue(withIdentifier: "dismissLogin", sender: self)
+            //self?.performSegue(withIdentifier: "dismissLogin", sender: self)
         }
     }
     

@@ -8,7 +8,9 @@
 
 import UIKit
 
-class MainViewController: UIViewController {
+class MainViewController: UIViewController, Storyboarded {
+    
+    weak var coordinator: MainCoordinator?
 
     @IBOutlet weak var moneyBackgroundImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
@@ -61,16 +63,19 @@ class MainViewController: UIViewController {
     }
     
     func newTransferButtonSegueClosure() {
-        performSegue(withIdentifier: "newTransferSegue", sender: nil)
+        //performSegue(withIdentifier: "newTransferSegue", sender: nil)
+        guard let user = user else { return }
+        coordinator?.makeNewTransfer(with: user)
+        
     }
     
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "newTransferSegue" {
-            let nvc = segue.destination as! UINavigationController
-            let vc = nvc.topViewController as! NewTransferViewController
-            vc.user = self.user
-        }
-    }
+//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+//        if segue.identifier == "newTransferSegue" {
+//            let nvc = segue.destination as! UINavigationController
+//            let vc = nvc.topViewController as! NewTransferViewController
+//            vc.user = self.user
+//        }
+//    }
 
 
 }

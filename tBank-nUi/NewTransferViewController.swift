@@ -9,7 +9,9 @@
 import UIKit
 import FirebaseAuth
 
-class NewTransferViewController: UIViewController, UITextFieldDelegate {
+class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboarded {
+    
+    weak var coordinator: MainCoordinator?
 
     @IBOutlet weak var receiverNameTextField: UITextField!
     @IBOutlet weak var receiverAccNumberTextField: UITextField!
