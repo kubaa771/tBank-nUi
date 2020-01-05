@@ -8,12 +8,12 @@
 
 import Foundation
 
-class Transaction {
-    var amount: NSNumber?
-    var senderBankAccountNumber: String?
-    var receiverBankAccountNumber: String?
-    var transactionDate: NSNumber?
-    var transactionTitle: String?
+class Transaction: NSObject {
+    @objc var amount: NSNumber?
+    @objc var senderBankAccountNumber: String?
+    @objc var receiverBankAccountNumber: String?
+    @objc var transactionDate: NSNumber?
+    @objc var transactionTitle: String?
     
     func getUserByBankAccountNumber() {
         // jezeli toUser bedzie potrzebny gdzies indziej niz w wygladzie celki

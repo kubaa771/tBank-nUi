@@ -83,12 +83,33 @@ class FirebaseBackend {
         }
     }
     
-    func getTransactions() {
+    func getTransactions(for userId: String, completion: @escaping (Array<Transaction>) -> Void) {
+        let userTransactionRef = Database.database().reference().child("user-transactions").child(userId)
+        
+        var transactions: [Transaction] = []
+        
+        userTransactionRef.observe(.value) { (snapshot) in
+            for child in snapshot.children {
+                guard let childSnapshot = child as? DataSnapshot else {return}
+                let transactionId = childSnapshot.key
+                let ref = Database.database().reference().child("transactions").child(transactionId)
+                
+                ref.observe(.value) { (transactionSnapshot) in
+                    guard let dictionary = transactionSnapshot.value as? [String:  Any] else { return }
+                    let transaction = Transaction()
+                    transaction.setValuesForKeys(dictionary)
+                    transactions.append(transaction)
+                    print("1")
+                }
+            }
+            print("2")
+            
+        }
         
     }
     
     func manageNewMoneyTransfer(values: [String: Any], sender: User) {
-        let ref = Database.database().reference().child("transactions")
+        let ref = Database.database().reference().child("transactions").childByAutoId()
         ref.updateChildValues(values) { (err, dbref) in
             if err != nil {
                 print(err?.localizedDescription as Any)

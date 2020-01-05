@@ -57,8 +57,15 @@ class MainViewController: UIViewController, Storyboarded {
             var bankAccountNumber = user.bankAccountNumber! //!!
             self.userAccountNumberLabel.text = bankAccountNumber
             self.user = user
+            //uzyc dispatch groupa i to wywalic stad bo completion bedzie
+            FirebaseBackend.shared.getTransactions(for: user.id!) { (transactions) in
+                
+            }
+            
             self.tableView.reloadData()
         }
+        
+        
 
     }
     

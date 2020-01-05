@@ -38,12 +38,17 @@ class HistoryContactCell: UITableViewCell {
             let name = receiver.name ?? receiver.email
             let surname = receiver.surname ?? ""
             self.nameLabel.text = name! + " " + surname
+            
+            //if transaction.receiverBankAccountNumber == 
+            
         }
         roundView.layer.masksToBounds = false
         roundView.layer.cornerRadius = 30
         roundView.clipsToBounds = true
         roundView.contentMode = UIView.ContentMode.scaleAspectFill
         accountNumberLabel.text = transaction.receiverBankAccountNumber
+        
+        
         balanceLabel.text = "-15,43"
     }
 
