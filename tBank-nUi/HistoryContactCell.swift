@@ -21,6 +21,8 @@ class HistoryContactCell: UITableViewCell {
             customize(transaction: model)
         }
     }
+    
+    var currentUser: User!
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -34,7 +36,25 @@ class HistoryContactCell: UITableViewCell {
     }
     
     func customize(transaction: Transaction) {
-        FirebaseBackend.shared.getUserBy(bankAccountNumber: transaction.receiverBankAccountNumber!) { (receiver) in
+        
+        let transactionUserBankAccountNumber: String!
+        
+        let amount = transaction.amount as! Float
+        
+        
+        if transaction.senderBankAccountNumber == currentUser.bankAccountNumber {
+            // odejmuje kase
+            transactionUserBankAccountNumber = transaction.receiverBankAccountNumber
+            balanceLabel.text = "-" + String(amount) + "$"
+            balanceLabel.textColor = UIColor.red
+        } else {
+            // dodaje kase
+            transactionUserBankAccountNumber = transaction.senderBankAccountNumber
+            balanceLabel.text = "+" + String(amount) + "$"
+            balanceLabel.textColor = UIColor.green
+        }
+        
+        FirebaseBackend.shared.getUserBy(bankAccountNumber: transactionUserBankAccountNumber) { (receiver) in
             let name = receiver.name ?? receiver.email
             let surname = receiver.surname ?? ""
             self.nameLabel.text = name! + " " + surname
@@ -46,10 +66,10 @@ class HistoryContactCell: UITableViewCell {
         roundView.layer.cornerRadius = 30
         roundView.clipsToBounds = true
         roundView.contentMode = UIView.ContentMode.scaleAspectFill
-        accountNumberLabel.text = transaction.receiverBankAccountNumber
+        //var bankAccountNumber = transactionUserBankAccountNumber
+        //bankAccountNumber?.translateBankAccountNumber()
+        accountNumberLabel.text = transaction.transactionTitle
         
-        
-        balanceLabel.text = "-15,43"
     }
 
 }

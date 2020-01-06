@@ -69,7 +69,7 @@ class FirebaseBackend {
     func getUserBy(bankAccountNumber: String, completion: @escaping (User) -> Void ){
         let ref = Database.database().reference().child("users")
         
-        ref.observe(.value) { (snapshot) in
+        ref.observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children {
                 guard let childSnapshot = child as? DataSnapshot else { return }
                 guard let values = childSnapshot.value as? [String : Any] else { return }
@@ -87,9 +87,10 @@ class FirebaseBackend {
         let userTransactionRef = Database.database().reference().child("user-transactions").child(userId)
         
         var transactions: [Transaction] = []
-        
-        userTransactionRef.observe(.value) { (snapshot) in
+        let group = DispatchGroup()
+        userTransactionRef.observe(.childAdded) { (snapshot) in
             for child in snapshot.children {
+                group.enter()
                 guard let childSnapshot = child as? DataSnapshot else {return}
                 let transactionId = childSnapshot.key
                 let ref = Database.database().reference().child("transactions").child(transactionId)
@@ -99,10 +100,14 @@ class FirebaseBackend {
                     let transaction = Transaction()
                     transaction.setValuesForKeys(dictionary)
                     transactions.append(transaction)
-                    print("1")
+                    group.leave()
+                    print("added smth")
                 }
             }
-            print("2")
+            group.notify(queue: .main) {
+                completion(transactions)
+            }
+            
             
         }
         
@@ -131,7 +136,28 @@ class FirebaseBackend {
                 receiverTransactionRef.setValue(1)
             }
             
-            
+              
+        }
+    }
+    
+    func updateMoneyFor(senderBankAccountNumber: String, receiverBankAccountNumber: String, amount: Float) {
+        getUserBy(bankAccountNumber: senderBankAccountNumber) { (sender) in
+            let ref = Database.database().reference().child("users").child(sender.id!)
+            let senderMoneyBeforeTransaction = sender.money as! Float
+            let senderMoneyAfterTransaction = senderMoneyBeforeTransaction - amount
+            //ref.setValue(senderMoneyAfterTransaction, forKey: "money")
+            //ref.setValuesForKeys(["money": senderMoneyAfterTransaction])
+            ref.updateChildValues(["money": senderMoneyAfterTransaction])
+            //ref.setValue(senderMoneyAfterTransaction)
+        }
+        
+        getUserBy(bankAccountNumber: receiverBankAccountNumber) { (receiver) in
+            let ref = Database.database().reference().child("users").child(receiver.id!)
+            let receiverMoneyBeforeTransaction = receiver.money as! Float
+            let receiverMoneyAfterTransaction = receiverMoneyBeforeTransaction + amount
+            //ref.setValuesForKeys(["money": receiverMoneyAfterTransaction])
+            //ref.setValue(receiverMoneyAfterTransaction, forKey: "money")
+            ref.updateChildValues(["money": receiverMoneyAfterTransaction])
             
         }
     }

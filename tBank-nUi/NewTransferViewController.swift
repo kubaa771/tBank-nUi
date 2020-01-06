@@ -109,6 +109,7 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
                 //w transaction date ustawic date z DatePicker() - wykonywany przelew kiedy ustawiona
                 let newTransfer: [String: Any] = ["amount" : amount, "senderBankAccountNumber" : senderBankAccountNumber, "receiverBankAccountNumber" : filteredInputText, "transactionDate" : NSNumber(value: NSDate().timeIntervalSince1970), "transactionTitle" : transferTitleTextField.text]
                 FirebaseBackend.shared.manageNewMoneyTransfer(values: newTransfer, sender: user)
+                FirebaseBackend.shared.updateMoneyFor(senderBankAccountNumber: senderBankAccountNumber!, receiverBankAccountNumber: filteredInputText, amount: amount)
                 
             } else {
                 print("your price value is not a number")

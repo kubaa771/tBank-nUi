@@ -22,6 +22,7 @@ class MainViewController: UIViewController, Storyboarded {
     
     
     var user: User! = nil
+    var transactions: [Transaction] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -53,18 +54,16 @@ class MainViewController: UIViewController, Storyboarded {
             self.userNameLabel.text = userNameInfo
             let money = user.money as! Float
             self.userMoneyLabel.text = String(money) + " $"
-            user.translateBankAccountNumber()
-            var bankAccountNumber = user.bankAccountNumber! //!!
+            var bankAccountNumber = user.bankAccountNumber!
+            bankAccountNumber.translateBankAccountNumber()
             self.userAccountNumberLabel.text = bankAccountNumber
             self.user = user
-            //uzyc dispatch groupa i to wywalic stad bo completion bedzie
-            FirebaseBackend.shared.getTransactions(for: user.id!) { (transactions) in
-                
+            FirebaseBackend.shared.getTransactions(for: self.user.id!) { (transactions) in
+                self.transactions = transactions
+                self.tableView.reloadData()
             }
-            
-            self.tableView.reloadData()
-        }
-        
+           
+        }  
         
 
     }
@@ -89,13 +88,15 @@ class MainViewController: UIViewController, Storyboarded {
 
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-           return 1
+        return transactions.count
        }
        
        func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryContactCell", for: indexPath) as! HistoryContactCell
         if user != nil {
-            //cell.model = Transaction(amount: 15, user: user)
+            cell.currentUser = user
+            cell.model = transactions[indexPath.row]
+            
         }
         return cell
        }
