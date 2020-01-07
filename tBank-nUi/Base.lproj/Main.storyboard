@@ -37,7 +37,7 @@
                             </label>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Yzk-bb-siq">
                                 <rect key="frame" x="0.0" y="107" width="414" height="755"/>
-                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <view key="tableHeaderView" contentMode="scaleToFill" id="Obj-FG-EUV">
                                     <rect key="frame" x="0.0" y="0.0" width="414" height="240"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -76,7 +76,7 @@
                                             </subviews>
                                         </stackView>
                                     </subviews>
-                                    <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstItem="DHX-2O-iha" firstAttribute="leading" secondItem="Obj-FG-EUV" secondAttribute="leading" id="6sM-pK-lyF"/>
                                         <constraint firstItem="S8Y-e8-rga" firstAttribute="centerY" secondItem="Obj-FG-EUV" secondAttribute="centerY" id="FCY-Q2-EYi"/>

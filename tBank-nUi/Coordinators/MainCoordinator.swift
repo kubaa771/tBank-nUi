@@ -38,10 +38,27 @@ class MainCoordinator: Coordinator {
     }
     
     func makeNewTransfer(with userData: User) {
+        /*let child = NewTransferCoordinator(navigationController: navigationController)
+        child.parentCoordinator = self
+        childCoordinators.append(child)
+        child.start(with: userData)*/
         let vc = NewTransferViewController.instantiate()
         vc.coordinator = self
         vc.user = userData
         navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func didFinishTransfer() {
+        
+    }
+    
+    func childDidFinish(_ child: Coordinator) {
+        for (index, coordinator) in childCoordinators.enumerated() {
+            if coordinator === child {
+                childCoordinators.remove(at: index)
+                break
+            }
+        }
     }
     
     

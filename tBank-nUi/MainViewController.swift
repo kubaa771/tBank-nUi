@@ -33,9 +33,10 @@ class MainViewController: UIViewController, Storyboarded {
         tableView.delegate = self
         buttonView.layer.cornerRadius = 30
         buttonView.tappedClosure = newTransferButtonSegueClosure
+        NotificationCenter.default.addObserver(self, selector: #selector(getTransactionsData), name: NotificationNames.refreshTransactionsData.notification, object: nil)
         //updateBackgroundImage(imageName: "redbackground.png")
         //updateView()
-        updateData()
+        updateUserData()
         //FirebaseBackend.shared.addExampleUserData()
         
     }
@@ -48,7 +49,7 @@ class MainViewController: UIViewController, Storyboarded {
         //moneyBackgroundImage.image = UIImage(contentsOfFile: "blackbg.jpg")
     }
     
-    func updateData() {
+    func updateUserData() {
         FirebaseBackend.shared.getUserData { (user) in
             let userNameInfo = (user.name ?? "") + " " + (user.surname ?? "")
             self.userNameLabel.text = userNameInfo
@@ -58,14 +59,17 @@ class MainViewController: UIViewController, Storyboarded {
             bankAccountNumber.translateBankAccountNumber()
             self.userAccountNumberLabel.text = bankAccountNumber
             self.user = user
-            FirebaseBackend.shared.getTransactions(for: self.user.id!) { (transactions) in
-                self.transactions = transactions
-                self.tableView.reloadData()
-            }
-           
+            self.getTransactionsData()
         }  
         
 
+    }
+    
+    @objc func getTransactionsData() {
+        FirebaseBackend.shared.getTransactions(for: self.user.id!) { (transactions) in
+            self.transactions = transactions
+            self.tableView.reloadData()
+        }
     }
     
     func newTransferButtonSegueClosure() {

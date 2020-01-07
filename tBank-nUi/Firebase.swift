@@ -84,18 +84,19 @@ class FirebaseBackend {
     }
     
     func getTransactions(for userId: String, completion: @escaping (Array<Transaction>) -> Void) {
+        
         let userTransactionRef = Database.database().reference().child("user-transactions").child(userId)
         
         var transactions: [Transaction] = []
         let group = DispatchGroup()
-        userTransactionRef.observe(.childAdded) { (snapshot) in
+        userTransactionRef.observeSingleEvent(of: .value) { (snapshot) in
             for child in snapshot.children {
                 group.enter()
                 guard let childSnapshot = child as? DataSnapshot else {return}
                 let transactionId = childSnapshot.key
                 let ref = Database.database().reference().child("transactions").child(transactionId)
                 
-                ref.observe(.value) { (transactionSnapshot) in
+                ref.observeSingleEvent(of: .value) { (transactionSnapshot) in
                     guard let dictionary = transactionSnapshot.value as? [String:  Any] else { return }
                     let transaction = Transaction()
                     transaction.setValuesForKeys(dictionary)
@@ -134,6 +135,8 @@ class FirebaseBackend {
                 
                 let receiverTransactionRef = Database.database().reference().child("user-transactions").child(receiverId).child(transactionId)
                 receiverTransactionRef.setValue(1)
+                
+                NotificationCenter.default.post(name: NotificationNames.refreshTransactionsData.notification, object: nil)
             }
             
               

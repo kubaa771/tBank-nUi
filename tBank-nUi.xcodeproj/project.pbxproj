@@ -19,6 +19,8 @@
 		8A59CC55239D634800922DEA /* FloatingButtonView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A59CC54239D634800922DEA /* FloatingButtonView.swift */; };
 		8A6737E9239BDDF000B4217B /* HistoryContactCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6737E8239BDDF000B4217B /* HistoryContactCell.swift */; };
 		8A6737EB239BDE1D00B4217B /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6737EA239BDE1D00B4217B /* Transaction.swift */; };
+		8A684B9423C4F0A5006BC7AC /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A684B9323C4F0A5006BC7AC /* NotificationNames.swift */; };
+		8A684B9623C4F422006BC7AC /* NewTransferCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A684B9523C4F422006BC7AC /* NewTransferCoordinator.swift */; };
 		8A9D5F95235F6E6B0071E509 /* NewTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */; };
 		8AB06EAA235795BC00DD551D /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */; };
 		8AB06EAC23579DA600DD551D /* TouchIdAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */; };
@@ -70,6 +72,8 @@
 		8A59CC54239D634800922DEA /* FloatingButtonView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FloatingButtonView.swift; sourceTree = "<group>"; };
 		8A6737E8239BDDF000B4217B /* HistoryContactCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryContactCell.swift; sourceTree = "<group>"; };
 		8A6737EA239BDE1D00B4217B /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		8A684B9323C4F0A5006BC7AC /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
+		8A684B9523C4F422006BC7AC /* NewTransferCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransferCoordinator.swift; sourceTree = "<group>"; };
 		8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransferViewController.swift; sourceTree = "<group>"; };
 		8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIdAuthentication.swift; sourceTree = "<group>"; };
@@ -129,6 +133,7 @@
 				8A03ECBE23C0D1E100A14E69 /* Coordinator.swift */,
 				8A03ECC023C0D2C200A14E69 /* Storyboarded.swift */,
 				8A03ECC223C0D68400A14E69 /* MainCoordinator.swift */,
+				8A684B9523C4F422006BC7AC /* NewTransferCoordinator.swift */,
 			);
 			path = Coordinators;
 			sourceTree = "<group>";
@@ -162,6 +167,7 @@
 				8AE13FAF2353AEAA00E94DCA /* AppDelegate.swift */,
 				8AE13FB12353AEAA00E94DCA /* SceneDelegate.swift */,
 				8A0E7A6923578F3400B3179E /* Firebase.swift */,
+				8A684B9323C4F0A5006BC7AC /* NotificationNames.swift */,
 				8AEF2B4B23550BBE005B127D /* User.swift */,
 				8A6737EA239BDE1D00B4217B /* Transaction.swift */,
 				8A0E7A652357865E00B3179E /* LoginPageViewController.swift */,
@@ -478,9 +484,11 @@
 				8AB06EAA235795BC00DD551D /* KeychainPasswordItem.swift in Sources */,
 				8A9D5F95235F6E6B0071E509 /* NewTransferViewController.swift in Sources */,
 				8A59CC55239D634800922DEA /* FloatingButtonView.swift in Sources */,
+				8A684B9423C4F0A5006BC7AC /* NotificationNames.swift in Sources */,
 				8A0E7A662357865E00B3179E /* LoginPageViewController.swift in Sources */,
 				8AEF2B4E23550D51005B127D /* MoneyTransfer.swift in Sources */,
 				8A0E7A6A23578F3400B3179E /* Firebase.swift in Sources */,
+				8A684B9623C4F422006BC7AC /* NewTransferCoordinator.swift in Sources */,
 				8A03ECC123C0D2C200A14E69 /* Storyboarded.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
