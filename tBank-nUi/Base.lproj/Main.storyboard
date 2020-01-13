@@ -87,7 +87,7 @@
                                     </constraints>
                                 </view>
                                 <prototypes>
-                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="HistoryContactCell" rowHeight="90" id="KI6-Z6-q5N" customClass="HistoryContactCell" customModule="tBank_nUi" customModuleProvider="target">
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="none" indentationWidth="10" reuseIdentifier="HistoryContactCell" rowHeight="90" id="KI6-Z6-q5N" customClass="HistoryContactCell" customModule="tBank_nUi" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="268" width="414" height="90"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="KI6-Z6-q5N" id="QAG-4x-19y">
@@ -151,6 +151,7 @@
                                             </constraints>
                                         </tableViewCellContentView>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <gestureRecognizers/>
                                         <connections>
                                             <outlet property="accountNumberLabel" destination="r2O-gB-Xcm" id="onw-Ca-ca5"/>
                                             <outlet property="balanceLabel" destination="sL0-9g-iBw" id="zqe-k5-d9N"/>

@@ -38,7 +38,15 @@ class MainViewController: UIViewController, Storyboarded {
         //updateView()
         updateUserData()
         //FirebaseBackend.shared.addExampleUserData()
+        let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(longPressGestureRecognizer:)))
+        longPressRecognizer.minimumPressDuration = 1.5
+        view.addGestureRecognizer(longPressRecognizer)
         
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: buttonView.buttonView.bounds.height + 40, right: 0)
     }
     
     func updateView() {
@@ -68,6 +76,11 @@ class MainViewController: UIViewController, Storyboarded {
     @objc func getTransactionsData() {
         FirebaseBackend.shared.getTransactions(for: self.user.id!) { (transactions) in
             self.transactions = transactions
+            self.transactions.sort { (t1, t2) -> Bool in
+                let transactionDate1 = TimeInterval(Double(truncating: t1.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t1.transactionDate!)))
+                let transactionDate2 = TimeInterval(Double(truncating: t2.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t2.transactionDate!)))
+                return transactionDate1 > transactionDate2
+            }
             self.tableView.reloadData()
         }
     }
@@ -86,6 +99,15 @@ class MainViewController: UIViewController, Storyboarded {
 //            vc.user = self.user
 //        }
 //    }
+    
+    func createBubbleView(rect: CGPoint) {
+        let bubbleView = CopiedBubbleView()
+        bubbleView.frame = CGRect(x: rect.x-50, y: rect.y-40, width: 100, height: 30)
+        view.addSubview(bubbleView)
+        UIView.animate(withDuration: 1.5, animations: {bubbleView.alpha = 0.0}) { (bool) in
+            bubbleView.removeFromSuperview()
+        }
+    }
 
 
 }
@@ -93,9 +115,9 @@ class MainViewController: UIViewController, Storyboarded {
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transactions.count
-       }
+    }
        
-       func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryContactCell", for: indexPath) as! HistoryContactCell
         if user != nil {
             cell.currentUser = user
@@ -103,7 +125,25 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             
         }
         return cell
-       }
+    }
+    
+    @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer){
+        if longPressGestureRecognizer.state == UIGestureRecognizer.State.began {
+            let touchPointForCell = longPressGestureRecognizer.location(in: tableView)
+            let touchPointForBubbleView = longPressGestureRecognizer.location(in: self.view)
+            if let indexPath = tableView.indexPathForRow(at: touchPointForCell) {
+                let transaction = transactions[indexPath.row]
+                if user.bankAccountNumber == transaction.senderBankAccountNumber {
+                    UIPasteboard.general.string = transaction.receiverBankAccountNumber
+                    createBubbleView(rect: touchPointForBubbleView)
+                } else {
+                    UIPasteboard.general.string = transaction.senderBankAccountNumber
+                    createBubbleView(rect: touchPointForBubbleView)
+                }
+            }
+        }
+    }
+    
        
 }
 
