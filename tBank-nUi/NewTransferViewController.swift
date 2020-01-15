@@ -27,7 +27,15 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
         datePicker.addTarget(nil, action: #selector(datePickerChanged), for: .valueChanged)
         transferDateTextField.inputView = datePicker
         receiverAccNumberTextField.delegate = self
+        let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
+        view.addGestureRecognizer(tap)
+        let date = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
+        transferDateTextField.text = date
         
+    }
+    
+    @objc func dismissKeyboard() {
+        view.endEditing(true)
     }
     
     @objc func datePickerChanged() {

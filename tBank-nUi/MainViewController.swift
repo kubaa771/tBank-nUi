@@ -10,19 +10,24 @@ import UIKit
 
 class MainViewController: UIViewController, Storyboarded {
     
+    // MARK: Variables, ViewController functions
+    
     weak var coordinator: MainCoordinator?
 
     @IBOutlet weak var moneyBackgroundImage: UIImageView!
     @IBOutlet weak var userNameLabel: UILabel!
     @IBOutlet weak var userAccountNumberLabel: UILabel!
     @IBOutlet weak var userMoneyLabel: UILabel!
-    @IBOutlet weak var userProfileImageView: UIImageView!
     @IBOutlet weak var tableView: UITableView!
     @IBOutlet weak var buttonView: FloatingButtonView!
     
     
     var user: User! = nil
     var transactions: [Transaction] = []
+    
+    override var preferredStatusBarStyle: UIStatusBarStyle {
+        return .lightContent
+    }
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -49,6 +54,9 @@ class MainViewController: UIViewController, Storyboarded {
         self.tableView.contentInset = UIEdgeInsets(top: 0, left: 0, bottom: buttonView.buttonView.bounds.height + 40, right: 0)
     }
     
+    
+    // MARK: Update UI
+    
     func updateView() {
         moneyBackgroundImage.layer.masksToBounds = false
         moneyBackgroundImage.layer.cornerRadius = 120
@@ -56,6 +64,17 @@ class MainViewController: UIViewController, Storyboarded {
         moneyBackgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         //moneyBackgroundImage.image = UIImage(contentsOfFile: "blackbg.jpg")
     }
+    
+    func createBubbleView(rect: CGPoint) {
+        let bubbleView = CopiedBubbleView()
+        bubbleView.frame = CGRect(x: rect.x-50, y: rect.y-40, width: 100, height: 30)
+        view.addSubview(bubbleView)
+        UIView.animate(withDuration: 1.5, animations: {bubbleView.alpha = 0.0}) { (bool) in
+            bubbleView.removeFromSuperview()
+        }
+    }
+    
+    // MARK: Update backend
     
     func updateUserData() {
         FirebaseBackend.shared.getUserData { (user) in
@@ -85,6 +104,19 @@ class MainViewController: UIViewController, Storyboarded {
         }
     }
     
+    // MARK: Buttons actions
+    
+    
+    @IBAction func profileButtonAction(_ sender: UIButton) {
+    }
+    
+    @IBAction func friendsButtonAction(_ sender: UIButton) {
+        print("ss")
+    }
+    
+    
+    // MARK: Coordinator usage/segues
+    
     func newTransferButtonSegueClosure() {
         //performSegue(withIdentifier: "newTransferSegue", sender: nil)
         guard let user = user else { return }
@@ -100,14 +132,7 @@ class MainViewController: UIViewController, Storyboarded {
 //        }
 //    }
     
-    func createBubbleView(rect: CGPoint) {
-        let bubbleView = CopiedBubbleView()
-        bubbleView.frame = CGRect(x: rect.x-50, y: rect.y-40, width: 100, height: 30)
-        view.addSubview(bubbleView)
-        UIView.animate(withDuration: 1.5, animations: {bubbleView.alpha = 0.0}) { (bool) in
-            bubbleView.removeFromSuperview()
-        }
-    }
+    
 
 
 }
@@ -146,4 +171,5 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
        
 }
+
 

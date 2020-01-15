@@ -23,7 +23,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             
             let navController = UINavigationController()
-                  
+            navController.navigationBar.barStyle = .black
             coordinator = MainCoordinator(navigationController: navController)
             coordinator?.start()
             
