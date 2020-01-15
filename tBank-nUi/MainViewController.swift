@@ -31,6 +31,7 @@ class MainViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateNavigationBar()
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
@@ -63,6 +64,20 @@ class MainViewController: UIViewController, Storyboarded {
         moneyBackgroundImage.clipsToBounds = true
         moneyBackgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         //moneyBackgroundImage.image = UIImage(contentsOfFile: "blackbg.jpg")
+    }
+    
+    func updateNavigationBar() {
+        let walletLabel = UILabel()
+        walletLabel.text = "Wallet"
+        walletLabel.font = UIFont.boldSystemFont(ofSize: 40.0)
+        navigationItem.leftBarButtonItem = UIBarButtonItem(customView: walletLabel)
+        
+        let profileImage = UIImage(systemName: "person")
+        let profileBarButton = UIBarButtonItem(image: profileImage, style: .plain, target: self, action: #selector(didTapProfileButtonAction))
+        
+        let friendsImage = UIImage(systemName: "person.2")
+        let friendsBarButton = UIBarButtonItem(image: friendsImage, style: .plain, target: self, action: #selector(didTapFriendsButtonAction))
+        navigationItem.rightBarButtonItems = [profileBarButton, friendsBarButton]
     }
     
     func createBubbleView(rect: CGPoint) {
@@ -107,11 +122,12 @@ class MainViewController: UIViewController, Storyboarded {
     // MARK: Buttons actions
     
     
-    @IBAction func profileButtonAction(_ sender: UIButton) {
+    @objc func didTapProfileButtonAction(_ sender: AnyObject) {
+        print("profile")
     }
     
-    @IBAction func friendsButtonAction(_ sender: UIButton) {
-        print("ss")
+    @objc func didTapFriendsButtonAction(_ sender: AnyObject) {
+        print("friends")
     }
     
     
