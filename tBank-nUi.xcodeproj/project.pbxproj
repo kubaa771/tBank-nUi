@@ -23,6 +23,7 @@
 		8A6737EB239BDE1D00B4217B /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A6737EA239BDE1D00B4217B /* Transaction.swift */; };
 		8A684B9423C4F0A5006BC7AC /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A684B9323C4F0A5006BC7AC /* NotificationNames.swift */; };
 		8A684B9623C4F422006BC7AC /* NewTransferCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A684B9523C4F422006BC7AC /* NewTransferCoordinator.swift */; };
+		8A7F7EA023CFC1A90097E5B0 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F7E9F23CFC1A90097E5B0 /* FriendsListViewController.swift */; };
 		8A9D5F95235F6E6B0071E509 /* NewTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */; };
 		8AB06EAA235795BC00DD551D /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */; };
 		8AB06EAC23579DA600DD551D /* TouchIdAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */; };
@@ -78,6 +79,7 @@
 		8A6737EA239BDE1D00B4217B /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		8A684B9323C4F0A5006BC7AC /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		8A684B9523C4F422006BC7AC /* NewTransferCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransferCoordinator.swift; sourceTree = "<group>"; };
+		8A7F7E9F23CFC1A90097E5B0 /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
 		8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransferViewController.swift; sourceTree = "<group>"; };
 		8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIdAuthentication.swift; sourceTree = "<group>"; };
@@ -142,6 +144,62 @@
 			path = Coordinators;
 			sourceTree = "<group>";
 		};
+		8A7F7EA123CFC1E90097E5B0 /* Views, UI */ = {
+			isa = PBXGroup;
+			children = (
+				8A0E7A652357865E00B3179E /* LoginPageViewController.swift */,
+				8AE13FB32353AEAA00E94DCA /* MainViewController.swift */,
+				8A6737E8239BDDF000B4217B /* HistoryContactCell.swift */,
+				8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */,
+				8A7F7E9F23CFC1A90097E5B0 /* FriendsListViewController.swift */,
+				8AE13FB52353AEAA00E94DCA /* Main.storyboard */,
+				8A59CC52239D631100922DEA /* FloatingButtonView.xib */,
+				8A59CC54239D634800922DEA /* FloatingButtonView.swift */,
+				8A4622DC23CBE51800DCA98B /* CopiedBubbleView.xib */,
+				8A4622DE23CBE53000DCA98B /* CopiedBubbleView.swift */,
+				8AE13FBA2353AEAC00E94DCA /* LaunchScreen.storyboard */,
+			);
+			path = "Views, UI";
+			sourceTree = "<group>";
+		};
+		8A7F7EA223CFC24E0097E5B0 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				8AEF2B4B23550BBE005B127D /* User.swift */,
+				8AEF2B4D23550D51005B127D /* MoneyTransfer.swift */,
+				8A6737EA239BDE1D00B4217B /* Transaction.swift */,
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		8A7F7EA323CFC2650097E5B0 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */,
+				8AE13FDF2353B16F00E94DCA /* Extensions.swift */,
+				8A684B9323C4F0A5006BC7AC /* NotificationNames.swift */,
+				8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		8A7F7EA423CFC2840097E5B0 /* System Files */ = {
+			isa = PBXGroup;
+			children = (
+				8AE13FAF2353AEAA00E94DCA /* AppDelegate.swift */,
+				8AE13FB12353AEAA00E94DCA /* SceneDelegate.swift */,
+			);
+			path = "System Files";
+			sourceTree = "<group>";
+		};
+		8A7F7EA523CFC29B0097E5B0 /* Backend */ = {
+			isa = PBXGroup;
+			children = (
+				8A0E7A6923578F3400B3179E /* Firebase.swift */,
+			);
+			path = Backend;
+			sourceTree = "<group>";
+		};
 		8AE13FA32353AEAA00E94DCA = {
 			isa = PBXGroup;
 			children = (
@@ -167,28 +225,13 @@
 		8AE13FAE2353AEAA00E94DCA /* tBank-nUi */ = {
 			isa = PBXGroup;
 			children = (
+				8A7F7EA423CFC2840097E5B0 /* System Files */,
 				8A03ECC423C0F44E00A14E69 /* Coordinators */,
-				8AE13FAF2353AEAA00E94DCA /* AppDelegate.swift */,
-				8AE13FB12353AEAA00E94DCA /* SceneDelegate.swift */,
-				8A0E7A6923578F3400B3179E /* Firebase.swift */,
-				8A684B9323C4F0A5006BC7AC /* NotificationNames.swift */,
-				8AEF2B4B23550BBE005B127D /* User.swift */,
-				8A6737EA239BDE1D00B4217B /* Transaction.swift */,
-				8A0E7A652357865E00B3179E /* LoginPageViewController.swift */,
-				8AE13FB32353AEAA00E94DCA /* MainViewController.swift */,
-				8A6737E8239BDDF000B4217B /* HistoryContactCell.swift */,
-				8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */,
-				8AEF2B4D23550D51005B127D /* MoneyTransfer.swift */,
-				8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */,
-				8AE13FDF2353B16F00E94DCA /* Extensions.swift */,
-				8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */,
-				8AE13FB52353AEAA00E94DCA /* Main.storyboard */,
-				8A59CC52239D631100922DEA /* FloatingButtonView.xib */,
-				8A59CC54239D634800922DEA /* FloatingButtonView.swift */,
-				8A4622DC23CBE51800DCA98B /* CopiedBubbleView.xib */,
-				8A4622DE23CBE53000DCA98B /* CopiedBubbleView.swift */,
+				8A7F7EA523CFC29B0097E5B0 /* Backend */,
+				8A7F7EA223CFC24E0097E5B0 /* Model */,
+				8A7F7EA123CFC1E90097E5B0 /* Views, UI */,
+				8A7F7EA323CFC2650097E5B0 /* Support */,
 				8AE13FB82353AEAC00E94DCA /* Assets.xcassets */,
-				8AE13FBA2353AEAC00E94DCA /* LaunchScreen.storyboard */,
 				8A0E7A6723578A5900B3179E /* GoogleService-Info.plist */,
 				8AE13FBD2353AEAC00E94DCA /* Info.plist */,
 			);
@@ -494,6 +537,7 @@
 				8A59CC55239D634800922DEA /* FloatingButtonView.swift in Sources */,
 				8A684B9423C4F0A5006BC7AC /* NotificationNames.swift in Sources */,
 				8A0E7A662357865E00B3179E /* LoginPageViewController.swift in Sources */,
+				8A7F7EA023CFC1A90097E5B0 /* FriendsListViewController.swift in Sources */,
 				8AEF2B4E23550D51005B127D /* MoneyTransfer.swift in Sources */,
 				8A0E7A6A23578F3400B3179E /* Firebase.swift in Sources */,
 				8A684B9623C4F422006BC7AC /* NewTransferCoordinator.swift in Sources */,

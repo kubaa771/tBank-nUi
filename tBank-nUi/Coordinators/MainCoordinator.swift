@@ -48,6 +48,13 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func openFriendsList(with userData: User) {
+        let vc = FriendsListViewController.instantiate()
+        vc.coordinator = self
+        vc.currentUser = userData
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
     func didFinishTransfer() {
         
     }
