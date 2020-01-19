@@ -66,3 +66,11 @@ extension String {
        }.joined().dropFirst())
     }
 }
+
+extension String {
+    mutating func translateBankAccountNumber() {
+        self.insert("-", at: self.index(self.startIndex, offsetBy: 4))
+        self.insert("-", at: self.index(self.startIndex, offsetBy: 9))
+        self.insert("-", at: self.index(self.startIndex, offsetBy: 14))
+    }
+}

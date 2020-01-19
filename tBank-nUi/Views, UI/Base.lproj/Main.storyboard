@@ -352,6 +352,7 @@
                                                             </textField>
                                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yZW-JS-jUx">
                                                                 <rect key="frame" x="334" y="1.6666666666666643" width="40" height="37"/>
+                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="40" id="YQn-Ev-EZg"/>
                                                                     <constraint firstAttribute="width" constant="40" id="xAv-fw-kx6"/>
@@ -372,10 +373,30 @@
                                                     </userDefinedRuntimeAttribute>
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-zH-Wex">
+                                                <rect key="frame" x="20" y="496" width="374" height="31"/>
+                                                <subviews>
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26H-sU-8jK">
+                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                    </switch>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add this person to your friends list?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yc-6a-w1d">
+                                                        <rect key="frame" x="59" y="0.0" width="315" height="31"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                </subviews>
+                                            </stackView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY2-kz-Ztg">
-                                                <rect key="frame" x="120" y="496" width="174" height="36"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="20"/>
-                                                <state key="normal" title="Wyślij przelew"/>
+                                                <rect key="frame" x="88" y="617" width="238" height="60"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="60" id="IQd-sY-l2t"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                <state key="normal" title="Send Transfer">
+                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </state>
                                                 <connections>
                                                     <action selector="sendTransactionButtonAction:" destination="Bfn-tN-azN" eventType="touchUpInside" id="XMY-5I-3Sg"/>
                                                 </connections>
@@ -383,14 +404,17 @@
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="QY2-kz-Ztg" firstAttribute="top" secondItem="m6E-IU-V43" secondAttribute="bottom" constant="60" id="21f-Hi-66r"/>
+                                            <constraint firstItem="QY2-kz-Ztg" firstAttribute="top" secondItem="KhV-zH-Wex" secondAttribute="bottom" constant="90" id="1QG-Uh-T7f"/>
+                                            <constraint firstAttribute="trailing" secondItem="KhV-zH-Wex" secondAttribute="trailing" constant="20" id="4SZ-du-9K0"/>
                                             <constraint firstItem="m6E-IU-V43" firstAttribute="top" secondItem="uBJ-va-IUJ" secondAttribute="bottom" constant="60" id="5to-2w-gmN"/>
                                             <constraint firstAttribute="trailing" secondItem="m6E-IU-V43" secondAttribute="trailing" constant="100" id="H0S-04-cd6"/>
                                             <constraint firstItem="uBJ-va-IUJ" firstAttribute="top" secondItem="xIi-bQ-bdo" secondAttribute="top" constant="20" id="M8v-zF-bci"/>
+                                            <constraint firstItem="KhV-zH-Wex" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="20" id="MfT-Qq-cgC"/>
+                                            <constraint firstAttribute="trailing" secondItem="QY2-kz-Ztg" secondAttribute="trailing" constant="88" id="Smr-ho-ZBP"/>
+                                            <constraint firstItem="QY2-kz-Ztg" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="88" id="W7y-vx-2sb"/>
+                                            <constraint firstItem="KhV-zH-Wex" firstAttribute="top" secondItem="m6E-IU-V43" secondAttribute="bottom" constant="60" id="ZDP-Xg-es9"/>
                                             <constraint firstItem="uBJ-va-IUJ" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="20" id="gBc-mx-L5T"/>
                                             <constraint firstAttribute="trailing" secondItem="uBJ-va-IUJ" secondAttribute="trailing" constant="20" id="lbF-di-N2G"/>
-                                            <constraint firstItem="QY2-kz-Ztg" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="120" id="pj7-dz-qq3"/>
-                                            <constraint firstAttribute="trailing" secondItem="QY2-kz-Ztg" secondAttribute="trailing" constant="120" id="xmt-at-SyO"/>
                                             <constraint firstItem="m6E-IU-V43" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="100" id="xvi-9R-9ve"/>
                                         </constraints>
                                     </view>
@@ -418,8 +442,10 @@
                     </view>
                     <navigationItem key="navigationItem" id="C2y-jS-HSo"/>
                     <connections>
+                        <outlet property="addFriendSwitch" destination="26H-sU-8jK" id="gGP-au-mBF"/>
                         <outlet property="receiverAccNumberTextField" destination="3pi-LZ-ySg" id="zT7-YI-7OT"/>
                         <outlet property="receiverNameTextField" destination="uSH-Tk-VAq" id="6f3-2h-wgO"/>
+                        <outlet property="sendTransferButton" destination="QY2-kz-Ztg" id="ld7-0i-XEi"/>
                         <outlet property="transferAmountTextField" destination="m6E-IU-V43" id="IOI-iM-44a"/>
                         <outlet property="transferDateTextField" destination="uxL-vb-UDX" id="nrC-Ep-6og"/>
                         <outlet property="transferTitleTextField" destination="OLN-uh-H5I" id="Msd-1Y-Juq"/>
@@ -427,7 +453,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Cip-qs-pzg" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1203" y="139"/>
+            <point key="canvasLocation" x="1202.8985507246377" y="138.61607142857142"/>
         </scene>
         <!--Login Page View Controller-->
         <scene sceneID="57S-cK-35G">

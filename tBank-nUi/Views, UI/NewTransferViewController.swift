@@ -18,12 +18,16 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
     @IBOutlet weak var transferTitleTextField: UITextField!
     @IBOutlet weak var transferDateTextField: UITextField!
     @IBOutlet weak var transferAmountTextField: UITextField!
+    @IBOutlet weak var sendTransferButton: UIButton!
+    @IBOutlet weak var addFriendSwitch: UISwitch!
+    
     
     let datePicker = UIDatePicker()
     var user: User? = nil
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        updateView()
         datePicker.addTarget(nil, action: #selector(datePickerChanged), for: .valueChanged)
         transferDateTextField.inputView = datePicker
         receiverAccNumberTextField.delegate = self
@@ -32,6 +36,10 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
         let date = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
         transferDateTextField.text = date
         
+    }
+    
+    func updateView() {
+        sendTransferButton.layer.cornerRadius = 30
     }
     
     @objc func dismissKeyboard() {
@@ -47,6 +55,7 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
         
         transferDateTextField.text = dateFormatter.string(from: datePicker.date)
     }
+    
     
     @IBAction func accountNumberChanged(_ sender: UITextField) {
         /*guard var inputText = sender.text else { return }
@@ -100,6 +109,8 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
         return true
     }
     
+    //TODO: Add at the end of price textField $ sign 
+    
     
     @IBAction func sendTransactionButtonAction(_ sender: UIButton) {
         guard let user = user else {
@@ -110,7 +121,8 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
             return
         }
         print(filteredInputText.count)
-        if receiverNameTextField.text != nil, transferAmountTextField.text != nil, filteredInputText.count == 16 {
+        
+        if receiverNameTextField.text != nil, transferAmountTextField.text != nil, transferTitleTextField != nil, filteredInputText.count == 16 {
             if let amount = Float(transferAmountTextField.text!) {
                 print(amount)
                 let senderBankAccountNumber = user.bankAccountNumber?.components(separatedBy: "-").joined()
@@ -118,15 +130,24 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
                 let surname = user.surname ?? ""
                 let fullName = name! + " " + surname
                 //w transaction date ustawic date z DatePicker() - wykonywany przelew kiedy ustawiona
-                let newTransfer: [String: Any] = ["amount" : amount, "senderBankAccountNumber" : senderBankAccountNumber, "receiverBankAccountNumber" : filteredInputText, "transactionDate" : NSNumber(value: NSDate().timeIntervalSince1970), "transactionTitle" : transferTitleTextField.text, "receiverName" : receiverNameTextField.text, "senderName" : fullName]
+                let newTransfer: [String: Any] = ["amount" : amount, "senderBankAccountNumber" : senderBankAccountNumber!, "receiverBankAccountNumber" : filteredInputText, "transactionDate" : NSNumber(value: NSDate().timeIntervalSince1970), "transactionTitle" : transferTitleTextField.text!, "receiverName" : receiverNameTextField.text!, "senderName" : fullName]
                 FirebaseBackend.shared.manageNewMoneyTransfer(values: newTransfer, sender: user)
                 FirebaseBackend.shared.updateMoneyFor(senderBankAccountNumber: senderBankAccountNumber!, receiverBankAccountNumber: filteredInputText, amount: amount)
                 //coordinator?.didFinishTransfer()
-                dismiss(animated: true, completion: nil)
+                if addFriendSwitch.isOn {
+                    //TODO: Add friend function (firebase)
+                    FirebaseBackend.shared.addFriendForCurrentUserId(currentUser: user, friendBankAccount: filteredInputText, friendName: receiverNameTextField.text!)
+                }
+                navigationController?.popViewController(animated: true)
+                dismiss(animated: true, completion: nil) //TODO: this doesnt work?
                 
             } else {
                 print("your price value is not a number")
+                //TODO: Alert here
             }
+        } else {
+            print("insert proper values")
+            //TODO: Alert here
         }
     }
     

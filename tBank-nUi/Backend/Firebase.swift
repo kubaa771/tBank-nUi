@@ -163,11 +163,25 @@ class FirebaseBackend {
         }
     }
     
-    func addFriendForCurrentUserId(currentUser: User, friendBankAccount: String) {
+    func addFriendForCurrentUserId(currentUser: User, friendBankAccount: String, friendName: String) {
         // TODO: finish this
         let ref = Database.database().reference().child("user-friends").child(currentUser.id!)
-        getUserBy(bankAccountNumber: friendBankAccount) { (friend) in
-            ref.child(friend.id!).setValue(1)
+        ref.child(friendBankAccount).setValue(friendName)
+    }
+    
+    func getFriends(for currentUser: User, completion: @escaping ([Friend]) -> Void) {
+        let ref = Database.database().reference().child("user-friends").child(currentUser.id!)
+        var friends: [Friend] = []
+        ref.observeSingleEvent(of: .value) { (snapshot) in
+            for friend in snapshot.children {
+                guard let friendSnapshot = friend as? DataSnapshot else { return }
+                let bankAccountNumber = friendSnapshot.key
+                let name = friendSnapshot.value as! String
+                let friend = Friend(bankAccountNumber: bankAccountNumber, name: name)
+                //TODO: Prevent copies
+                friends.append(friend)
+            }
+            completion(friends)
         }
     }
     

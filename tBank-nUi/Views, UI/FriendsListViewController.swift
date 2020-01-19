@@ -14,11 +14,20 @@ class FriendsListViewController: UIViewController, Storyboarded {
     weak var coordinator: MainCoordinator?
     
     var currentUser: User!
+    var friends: [Friend] = []
     
     override func viewDidLoad() {
         super.viewDidLoad()
         tableView.delegate = self
         tableView.dataSource = self
+        getFriends()
+    }
+    
+    func getFriends() {
+        FirebaseBackend.shared.getFriends(for: currentUser) { (friends) in
+            self.friends = friends
+            self.tableView.reloadData()
+        }
     }
     
 
@@ -26,12 +35,12 @@ class FriendsListViewController: UIViewController, Storyboarded {
 
 extension FriendsListViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 1
+        return friends.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "HistoryContactCell", for: indexPath) as! HistoryContactCell
-        cell.modelForFriendView = currentUser
+        cell.modelForFriendView = friends[indexPath.row]
         return cell
     }
     

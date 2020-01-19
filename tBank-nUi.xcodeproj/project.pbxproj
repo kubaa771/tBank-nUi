@@ -36,6 +36,7 @@
 		8AE13FC72353AEAC00E94DCA /* tBank_nUiTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE13FC62353AEAC00E94DCA /* tBank_nUiTests.swift */; };
 		8AE13FD22353AEAC00E94DCA /* tBank_nUiUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE13FD12353AEAC00E94DCA /* tBank_nUiUITests.swift */; };
 		8AE13FE02353B16F00E94DCA /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE13FDF2353B16F00E94DCA /* Extensions.swift */; };
+		8AE2A3CF23D4A4E8003EE84A /* Friend.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AE2A3CE23D4A4E8003EE84A /* Friend.swift */; };
 		8AEF2B4C23550BBE005B127D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF2B4B23550BBE005B127D /* User.swift */; };
 		8AEF2B4E23550D51005B127D /* MoneyTransfer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AEF2B4D23550D51005B127D /* MoneyTransfer.swift */; };
 		BE44E596D3653A26D6BE63F2 /* Pods_tBank_nUi_tBank_nUiUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 194E7A749923CCD6A5969566 /* Pods_tBank_nUi_tBank_nUiUITests.framework */; };
@@ -98,6 +99,7 @@
 		8AE13FD12353AEAC00E94DCA /* tBank_nUiUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = tBank_nUiUITests.swift; sourceTree = "<group>"; };
 		8AE13FD32353AEAC00E94DCA /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		8AE13FDF2353B16F00E94DCA /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		8AE2A3CE23D4A4E8003EE84A /* Friend.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Friend.swift; sourceTree = "<group>"; };
 		8AEF2B4B23550BBE005B127D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		8AEF2B4D23550D51005B127D /* MoneyTransfer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoneyTransfer.swift; sourceTree = "<group>"; };
 		CC5BA26409889CBB7D66102E /* Pods-tBank-nUi.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-tBank-nUi.release.xcconfig"; path = "Target Support Files/Pods-tBank-nUi/Pods-tBank-nUi.release.xcconfig"; sourceTree = "<group>"; };
@@ -166,6 +168,7 @@
 			isa = PBXGroup;
 			children = (
 				8AEF2B4B23550BBE005B127D /* User.swift */,
+				8AE2A3CE23D4A4E8003EE84A /* Friend.swift */,
 				8AEF2B4D23550D51005B127D /* MoneyTransfer.swift */,
 				8A6737EA239BDE1D00B4217B /* Transaction.swift */,
 			);
@@ -542,6 +545,7 @@
 				8A0E7A6A23578F3400B3179E /* Firebase.swift in Sources */,
 				8A684B9623C4F422006BC7AC /* NewTransferCoordinator.swift in Sources */,
 				8A03ECC123C0D2C200A14E69 /* Storyboarded.swift in Sources */,
+				8AE2A3CF23D4A4E8003EE84A /* Friend.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

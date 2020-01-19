@@ -22,9 +22,10 @@ class HistoryContactCell: UITableViewCell {
         }
     }
     
-    var modelForFriendView: User! {
+    var modelForFriendView: Friend! {
         didSet {
-            customizeForFriendsView(user: modelForFriendView)
+            //TODO: Guard statement
+            customizeForFriendsView(friend: modelForFriendView)
         }
     }
     
@@ -42,21 +43,16 @@ class HistoryContactCell: UITableViewCell {
     }
     
     func customize(transaction: Transaction) {
-        
-        let transactionUserBankAccountNumber: String!
-        
+        //TODO: Initials
         let amount = transaction.amount as! Float
-        
         
         if transaction.senderBankAccountNumber == currentUser.bankAccountNumber {
             // odejmuje kase
             nameLabel.text = transaction.receiverName
-            transactionUserBankAccountNumber = transaction.receiverBankAccountNumber
             balanceLabel.text = "-" + String(amount) + "$"
             balanceLabel.textColor = UIColor.red
         } else {
             // dodaje kase
-            transactionUserBankAccountNumber = transaction.senderBankAccountNumber
             nameLabel.text = transaction.senderName
             balanceLabel.text = "+" + String(amount) + "$"
             balanceLabel.textColor = UIColor.green
@@ -73,18 +69,16 @@ class HistoryContactCell: UITableViewCell {
         
     }
     
-    func customizeForFriendsView(user: User) {
+    func customizeForFriendsView(friend: Friend) {
         roundView.layer.masksToBounds = false
         roundView.layer.cornerRadius = 30
         roundView.clipsToBounds = true
         roundView.contentMode = UIView.ContentMode.scaleAspectFill
         
-        let name = user.name ?? user.email
-        let surname = user.surname ?? ""
-        nameLabel.text = name! + " " + surname
-        var bankAccountNumber = user.bankAccountNumber
-        bankAccountNumber?.translateBankAccountNumber()
-        accountNumberLabel.text = bankAccountNumber
+        nameLabel.text = friend.name
+        var mutableBankAccountNumber = friend.bankAccountNumber
+        mutableBankAccountNumber.translateBankAccountNumber()
+        accountNumberLabel.text = mutableBankAccountNumber
     }
 
 }
