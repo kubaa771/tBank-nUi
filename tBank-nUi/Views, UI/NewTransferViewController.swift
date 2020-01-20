@@ -31,6 +31,7 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
         datePicker.addTarget(nil, action: #selector(datePickerChanged), for: .valueChanged)
         transferDateTextField.inputView = datePicker
         receiverAccNumberTextField.delegate = self
+        transferAmountTextField.delegate = self
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         let date = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
@@ -106,10 +107,23 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
 
             return false
         }
+        
         return true
     }
     
-    //TODO: Add at the end of price textField $ sign 
+    //TODO: Add at the end of price textField $ sign
+    func textFieldDidBeginEditing(_ textField: UITextField) {
+        if textField == transferAmountTextField {
+            textField.text = ""
+        }
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        if textField == transferAmountTextField {
+            transferAmountTextField.text = "\(textField.text!)$"
+        }
+    }
+    
     
     
     @IBAction func sendTransactionButtonAction(_ sender: UIButton) {
@@ -123,7 +137,10 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
         print(filteredInputText.count)
         
         if receiverNameTextField.text != nil, transferAmountTextField.text != nil, transferTitleTextField != nil, filteredInputText.count == 16 {
-            if let amount = Float(transferAmountTextField.text!) {
+            let _ = transferAmountTextField.text?.popLast()
+            let textAfterReplacement = transferAmountTextField.text!.replacingOccurrences(of: ",", with: ".")
+        
+            if let amount = Float(textAfterReplacement) {
                 print(amount)
                 let senderBankAccountNumber = user.bankAccountNumber?.components(separatedBy: "-").joined()
                 let name = user.name ?? user.email
@@ -135,7 +152,6 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
                 FirebaseBackend.shared.updateMoneyFor(senderBankAccountNumber: senderBankAccountNumber!, receiverBankAccountNumber: filteredInputText, amount: amount)
                 //coordinator?.didFinishTransfer()
                 if addFriendSwitch.isOn {
-                    //TODO: Add friend function (firebase)
                     FirebaseBackend.shared.addFriendForCurrentUserId(currentUser: user, friendBankAccount: filteredInputText, friendName: receiverNameTextField.text!)
                 }
                 navigationController?.popViewController(animated: true)

@@ -42,8 +42,16 @@ class HistoryContactCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    func updateView() {
+        roundView.layer.masksToBounds = false
+        roundView.layer.cornerRadius = 30
+        roundView.clipsToBounds = true
+        roundView.contentMode = UIView.ContentMode.scaleAspectFill
+    }
+    
     func customize(transaction: Transaction) {
         //TODO: Initials
+        updateView()
         let amount = transaction.amount as! Float
         
         if transaction.senderBankAccountNumber == currentUser.bankAccountNumber {
@@ -51,18 +59,15 @@ class HistoryContactCell: UITableViewCell {
             nameLabel.text = transaction.receiverName
             balanceLabel.text = "-" + String(amount) + "$"
             balanceLabel.textColor = UIColor.red
+            initialsLabel.text = transaction.receiverName!.createInitials()
         } else {
             // dodaje kase
             nameLabel.text = transaction.senderName
             balanceLabel.text = "+" + String(amount) + "$"
             balanceLabel.textColor = UIColor.green
+            initialsLabel.text = transaction.senderName!.createInitials()
         }
         
-        
-        roundView.layer.masksToBounds = false
-        roundView.layer.cornerRadius = 30
-        roundView.clipsToBounds = true
-        roundView.contentMode = UIView.ContentMode.scaleAspectFill
         //var bankAccountNumber = transactionUserBankAccountNumber
         //bankAccountNumber?.translateBankAccountNumber()
         accountNumberLabel.text = transaction.transactionTitle
@@ -70,15 +75,21 @@ class HistoryContactCell: UITableViewCell {
     }
     
     func customizeForFriendsView(friend: Friend) {
-        roundView.layer.masksToBounds = false
-        roundView.layer.cornerRadius = 30
-        roundView.clipsToBounds = true
-        roundView.contentMode = UIView.ContentMode.scaleAspectFill
-        
+        updateView()
         nameLabel.text = friend.name
         var mutableBankAccountNumber = friend.bankAccountNumber
         mutableBankAccountNumber.translateBankAccountNumber()
         accountNumberLabel.text = mutableBankAccountNumber
+        initialsLabel.text = friend.name.createInitials()
     }
 
+}
+
+extension String {
+    func createInitials() -> String {
+        let initialsComponents = self.components(separatedBy: " ")
+        let firstInitial = initialsComponents.first?.first
+        let secondInitial = initialsComponents.last?.first
+        return String(firstInitial ?? " ") + String(secondInitial ?? " ")
+    }
 }
