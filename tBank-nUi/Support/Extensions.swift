@@ -74,3 +74,12 @@ extension String {
         self.insert("-", at: self.index(self.startIndex, offsetBy: 14))
     }
 }
+
+extension UIViewController {
+    func showAlert(title: String, message: String) {
+        let alert = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        let okAlertAction = UIAlertAction(title: "OK", style: .default, handler: nil)
+        alert.addAction(okAlertAction)
+        self.present(alert, animated: true, completion: nil)
+    }
+}

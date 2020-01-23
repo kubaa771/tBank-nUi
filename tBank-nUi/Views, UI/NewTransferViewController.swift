@@ -111,7 +111,6 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
         return true
     }
     
-    //TODO: Add at the end of price textField $ sign
     func textFieldDidBeginEditing(_ textField: UITextField) {
         if textField == transferAmountTextField {
             textField.text = ""
@@ -159,11 +158,11 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
                 
             } else {
                 print("your price value is not a number")
-                //TODO: Alert here
+                showAlert(title: "Wrong price value", message: "Your entered price value is invalid.")
             }
         } else {
             print("insert proper values")
-            //TODO: Alert here
+            showAlert(title: "Wrong values", message: "Check your fields once again. Entered values are invalid.")
         }
     }
     

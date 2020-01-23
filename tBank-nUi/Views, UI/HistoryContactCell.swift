@@ -24,7 +24,6 @@ class HistoryContactCell: UITableViewCell {
     
     var modelForFriendView: Friend! {
         didSet {
-            //TODO: Guard statement
             customizeForFriendsView(friend: modelForFriendView)
         }
     }

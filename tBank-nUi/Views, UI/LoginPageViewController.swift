@@ -187,7 +187,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
       let alertView = UIAlertController(title: "Login Problem",
                                         message: "Wrong username or password.",
                                         preferredStyle:. alert)
-      let okAction = UIAlertAction(title: "Foiled Again!", style: .default)
+      let okAction = UIAlertAction(title: "OK!", style: .default)
       alertView.addAction(okAction)
       present(alertView, animated: true)
     }

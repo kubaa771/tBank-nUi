@@ -164,7 +164,6 @@ class FirebaseBackend {
     }
     
     func addFriendForCurrentUserId(currentUser: User, friendBankAccount: String, friendName: String) {
-        // TODO: finish this
         let ref = Database.database().reference().child("user-friends").child(currentUser.id!)
         ref.child(friendBankAccount).setValue(friendName)
     }
@@ -178,7 +177,7 @@ class FirebaseBackend {
                 let bankAccountNumber = friendSnapshot.key
                 let name = friendSnapshot.value as! String
                 let friend = Friend(bankAccountNumber: bankAccountNumber, name: name)
-                //TODO: Prevent copies
+                
                 friends.append(friend)
             }
             completion(friends)
