@@ -364,6 +364,7 @@
                                             </stackView>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wpisz kwote ($)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6E-IU-V43">
                                                 <rect key="frame" x="100" y="402" width="214" height="34"/>
+                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                                 <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
@@ -376,10 +377,10 @@
                                             <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-zH-Wex">
                                                 <rect key="frame" x="20" y="496" width="374" height="31"/>
                                                 <subviews>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26H-sU-8jK">
+                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26H-sU-8jK">
                                                         <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
                                                     </switch>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add this person to your friends list?" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontForContentSizeCategory="YES" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3Yc-6a-w1d">
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add this person to your friends list?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Yc-6a-w1d">
                                                         <rect key="frame" x="59" y="0.0" width="315" height="31"/>
                                                         <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -420,6 +421,8 @@
                                     </view>
                                 </subviews>
                                 <constraints>
+                                    <constraint firstItem="xIi-bQ-bdo" firstAttribute="height" secondItem="iug-c4-L0s" secondAttribute="height" priority="250" id="8Ju-am-Ksd"/>
+                                    <constraint firstItem="xIi-bQ-bdo" firstAttribute="width" secondItem="iug-c4-L0s" secondAttribute="width" id="Flx-YZ-idD"/>
                                     <constraint firstAttribute="bottom" secondItem="xIi-bQ-bdo" secondAttribute="bottom" id="GRV-5R-RAK"/>
                                     <constraint firstItem="xIi-bQ-bdo" firstAttribute="centerY" secondItem="iug-c4-L0s" secondAttribute="centerY" id="hTt-xQ-Yd9"/>
                                     <constraint firstItem="xIi-bQ-bdo" firstAttribute="top" secondItem="iug-c4-L0s" secondAttribute="top" id="hyS-GD-P90"/>
@@ -445,6 +448,7 @@
                         <outlet property="addFriendSwitch" destination="26H-sU-8jK" id="gGP-au-mBF"/>
                         <outlet property="receiverAccNumberTextField" destination="3pi-LZ-ySg" id="zT7-YI-7OT"/>
                         <outlet property="receiverNameTextField" destination="uSH-Tk-VAq" id="6f3-2h-wgO"/>
+                        <outlet property="scrollView" destination="iug-c4-L0s" id="lx0-WM-4oO"/>
                         <outlet property="sendTransferButton" destination="QY2-kz-Ztg" id="ld7-0i-XEi"/>
                         <outlet property="transferAmountTextField" destination="m6E-IU-V43" id="IOI-iM-44a"/>
                         <outlet property="transferDateTextField" destination="uxL-vb-UDX" id="nrC-Ep-6og"/>

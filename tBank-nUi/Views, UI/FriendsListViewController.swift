@@ -44,5 +44,11 @@ extension FriendsListViewController: UITableViewDelegate, UITableViewDataSource 
         return cell
     }
     
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        guard let user = currentUser else { return }
+        let cellModel = friends[indexPath.row]
+        coordinator?.makeNewTransferFromFriendsView(currentUser: user, tappedFriend: cellModel)
+    }
+    
     
 }

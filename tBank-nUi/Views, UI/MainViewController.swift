@@ -128,13 +128,13 @@ class MainViewController: UIViewController, Storyboarded {
     
     @objc func didTapFriendsButtonAction(_ sender: AnyObject) {
         guard let user = user else { return }
-        coordinator?.openFriendsList(with: user)
+        coordinator?.openFriendsList(currentUser: user)
     }
     
     func newTransferButtonSegueClosure() {
         //performSegue(withIdentifier: "newTransferSegue", sender: nil)
         guard let user = user else { return }
-        coordinator?.makeNewTransfer(with: user)
+        coordinator?.makeNewTransfer(currentUser: user)
         
     }
     

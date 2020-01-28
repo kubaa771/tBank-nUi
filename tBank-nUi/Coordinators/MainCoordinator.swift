@@ -37,21 +37,29 @@ class MainCoordinator: Coordinator {
         
     }
     
-    func makeNewTransfer(with userData: User) {
+    func makeNewTransfer(currentUser: User) {
         /*let child = NewTransferCoordinator(navigationController: navigationController)
         child.parentCoordinator = self
         childCoordinators.append(child)
         child.start(with: userData)*/
         let vc = NewTransferViewController.instantiate()
         vc.coordinator = self
-        vc.user = userData
+        vc.user = currentUser
         navigationController.pushViewController(vc, animated: true)
     }
     
-    func openFriendsList(with userData: User) {
+    func makeNewTransferFromFriendsView(currentUser: User, tappedFriend: Friend) {
+        let vc = NewTransferViewController.instantiate()
+        vc.coordinator = self
+        vc.user = currentUser
+        vc.friend = tappedFriend
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func openFriendsList(currentUser: User) {
         let vc = FriendsListViewController.instantiate()
         vc.coordinator = self
-        vc.currentUser = userData
+        vc.currentUser = currentUser
         navigationController.pushViewController(vc, animated: true)
     }
     

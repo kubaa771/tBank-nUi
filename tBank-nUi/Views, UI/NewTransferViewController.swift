@@ -20,10 +20,12 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
     @IBOutlet weak var transferAmountTextField: UITextField!
     @IBOutlet weak var sendTransferButton: UIButton!
     @IBOutlet weak var addFriendSwitch: UISwitch!
-    
+    @IBOutlet weak var scrollView: UIScrollView!
     
     let datePicker = UIDatePicker()
     var user: User? = nil
+    var isFriendPicked: Bool = false
+    var friend: Friend?
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -36,11 +38,15 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
         view.addGestureRecognizer(tap)
         let date = DateFormatter.localizedString(from: Date(), dateStyle: .medium, timeStyle: .medium)
         transferDateTextField.text = date
-        
+        if let friend = friend {
+            fulFillTextFields(bankAccountNumber: friend.bankAccountNumber, name: friend.name)
+        }
     }
     
     func updateView() {
         sendTransferButton.layer.cornerRadius = 30
+        //scrollView.isScrollEnabled = true
+        //scrollView.contentSize = CGSize(width: 500, height: 1000)
     }
     
     @objc func dismissKeyboard() {
@@ -90,6 +96,11 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
             receiverAccNumberTextField.text?.insert("-", at: stIndex!)
         }*/
         
+    }
+    
+    func fulFillTextFields(bankAccountNumber: String, name: String) {
+        receiverAccNumberTextField.setText(to: bankAccountNumber.grouping(every: 4, with: "-"), preservingCursor: true)
+        receiverNameTextField.text = name
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
