@@ -34,7 +34,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        
+        updateView()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -42,7 +42,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
             
         // 2
         if hasLogin {
-          loginButton.setTitle("Login", for: .normal)
+          loginButton.setTitle("Log In", for: .normal)
           loginButton.tag = loginButtonTag
         } else {
           loginButton.setTitle("Create", for: .normal)
@@ -192,14 +192,12 @@ class LoginPageViewController: UIViewController, Storyboarded {
       present(alertView, animated: true)
     }
     
-    /*
-    // MARK: - Navigation
 
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+
+extension LoginPageViewController {
+    func updateView() {
+        updateBackgroundImage(imageName: "loginchoppedbg")
+        loginButton.backgroundColor = UIColor(red: 0.062, green: 0.059, blue: 0.058, alpha: 1)
     }
-    */
-
 }
