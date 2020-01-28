@@ -288,58 +288,46 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsHorizontalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iug-c4-L0s">
-                                <rect key="frame" x="0.0" y="44" width="414" height="818"/>
+                                <rect key="frame" x="0.0" y="44" width="414" height="852"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xIi-bQ-bdo">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="818"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="817"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="uBJ-va-IUJ">
-                                                <rect key="frame" x="20" y="20" width="374" height="322"/>
+                                            <stackView opaque="NO" contentMode="scaleAspectFill" axis="vertical" spacing="70" translatesAutoresizingMaskIntoConstraints="NO" id="Y6F-vM-ceI">
+                                                <rect key="frame" x="20" y="20" width="374" height="657"/>
                                                 <subviews>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wpisz nazwę odbiorcy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uSH-Tk-VAq">
-                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wpisz numer rachunku" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pi-LZ-ySg">
-                                                        <rect key="frame" x="0.0" y="94" width="374" height="34"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                        <connections>
-                                                            <action selector="accountNumberChanged:" destination="Bfn-tN-azN" eventType="editingChanged" id="YhK-Nl-7Fu"/>
-                                                        </connections>
-                                                    </textField>
-                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tytuł przelewu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLN-uh-H5I">
-                                                        <rect key="frame" x="0.0" y="188" width="374" height="34"/>
-                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                        <textInputTraits key="textInputTraits"/>
-                                                        <userDefinedRuntimeAttributes>
-                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                            </userDefinedRuntimeAttribute>
-                                                        </userDefinedRuntimeAttributes>
-                                                    </textField>
-                                                    <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I96-1V-bdT">
-                                                        <rect key="frame" x="0.0" y="282" width="374" height="40"/>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="60" translatesAutoresizingMaskIntoConstraints="NO" id="uBJ-va-IUJ">
+                                                        <rect key="frame" x="0.0" y="0.0" width="374" height="322"/>
                                                         <subviews>
-                                                            <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data przelewu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uxL-vb-UDX">
-                                                                <rect key="frame" x="0.0" y="3" width="326" height="34"/>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wpisz nazwę odbiorcy" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uSH-Tk-VAq">
+                                                                <rect key="frame" x="0.0" y="0.0" width="374" height="34"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <textInputTraits key="textInputTraits"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                        <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wpisz numer rachunku" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3pi-LZ-ySg">
+                                                                <rect key="frame" x="0.0" y="94" width="374" height="34"/>
+                                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                                <userDefinedRuntimeAttributes>
+                                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                    </userDefinedRuntimeAttribute>
+                                                                </userDefinedRuntimeAttributes>
+                                                                <connections>
+                                                                    <action selector="accountNumberChanged:" destination="Bfn-tN-azN" eventType="editingChanged" id="YhK-Nl-7Fu"/>
+                                                                </connections>
+                                                            </textField>
+                                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Tytuł przelewu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="OLN-uh-H5I">
+                                                                <rect key="frame" x="0.0" y="188" width="374" height="34"/>
                                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
@@ -350,84 +338,91 @@
                                                                     </userDefinedRuntimeAttribute>
                                                                 </userDefinedRuntimeAttributes>
                                                             </textField>
-                                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yZW-JS-jUx">
-                                                                <rect key="frame" x="334" y="1.6666666666666643" width="40" height="37"/>
-                                                                <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                                <constraints>
-                                                                    <constraint firstAttribute="height" constant="40" id="YQn-Ev-EZg"/>
-                                                                    <constraint firstAttribute="width" constant="40" id="xAv-fw-kx6"/>
-                                                                </constraints>
-                                                            </imageView>
+                                                            <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="I96-1V-bdT">
+                                                                <rect key="frame" x="0.0" y="282" width="374" height="40"/>
+                                                                <subviews>
+                                                                    <textField opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Data przelewu" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="uxL-vb-UDX">
+                                                                        <rect key="frame" x="0.0" y="3" width="326" height="34"/>
+                                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                                                                        <textInputTraits key="textInputTraits"/>
+                                                                        <userDefinedRuntimeAttributes>
+                                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                            </userDefinedRuntimeAttribute>
+                                                                        </userDefinedRuntimeAttributes>
+                                                                    </textField>
+                                                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="calendar" catalog="system" translatesAutoresizingMaskIntoConstraints="NO" id="yZW-JS-jUx">
+                                                                        <rect key="frame" x="334" y="1.6666666666666643" width="40" height="37"/>
+                                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                        <constraints>
+                                                                            <constraint firstAttribute="height" constant="40" id="YQn-Ev-EZg"/>
+                                                                            <constraint firstAttribute="width" constant="40" id="xAv-fw-kx6"/>
+                                                                        </constraints>
+                                                                    </imageView>
+                                                                </subviews>
+                                                            </stackView>
                                                         </subviews>
                                                     </stackView>
+                                                    <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wpisz kwote ($)" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6E-IU-V43">
+                                                        <rect key="frame" x="0.0" y="392" width="374" height="34"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
+                                                        <userDefinedRuntimeAttributes>
+                                                            <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
+                                                                <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                            </userDefinedRuntimeAttribute>
+                                                        </userDefinedRuntimeAttributes>
+                                                    </textField>
+                                                    <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-zH-Wex">
+                                                        <rect key="frame" x="0.0" y="496" width="374" height="31"/>
+                                                        <subviews>
+                                                            <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26H-sU-8jK">
+                                                                <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
+                                                            </switch>
+                                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add this person to your friends list?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Yc-6a-w1d">
+                                                                <rect key="frame" x="59" y="0.0" width="315" height="31"/>
+                                                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
+                                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                                <nil key="highlightedColor"/>
+                                                            </label>
+                                                        </subviews>
+                                                    </stackView>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY2-kz-Ztg">
+                                                        <rect key="frame" x="0.0" y="597" width="374" height="60"/>
+                                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <constraints>
+                                                            <constraint firstAttribute="height" constant="60" id="IQd-sY-l2t"/>
+                                                        </constraints>
+                                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
+                                                        <state key="normal" title="Send Transfer">
+                                                            <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </state>
+                                                        <connections>
+                                                            <action selector="sendTransactionButtonAction:" destination="Bfn-tN-azN" eventType="touchUpInside" id="XMY-5I-3Sg"/>
+                                                        </connections>
+                                                    </button>
                                                 </subviews>
+                                                <rect key="contentStretch" x="0.0" y="0.0" width="0.0" height="1"/>
                                             </stackView>
-                                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Wpisz kwote ($)" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="m6E-IU-V43">
-                                                <rect key="frame" x="100" y="402" width="214" height="34"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
-                                                <userDefinedRuntimeAttributes>
-                                                    <userDefinedRuntimeAttribute type="color" keyPath="placeholderLabel.textColor">
-                                                        <color key="value" white="0.33333333329999998" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                    </userDefinedRuntimeAttribute>
-                                                </userDefinedRuntimeAttributes>
-                                            </textField>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="KhV-zH-Wex">
-                                                <rect key="frame" x="20" y="496" width="374" height="31"/>
-                                                <subviews>
-                                                    <switch opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" horizontalCompressionResistancePriority="752" verticalCompressionResistancePriority="752" contentHorizontalAlignment="center" contentVerticalAlignment="center" on="YES" translatesAutoresizingMaskIntoConstraints="NO" id="26H-sU-8jK">
-                                                        <rect key="frame" x="0.0" y="0.0" width="51" height="31"/>
-                                                    </switch>
-                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add this person to your friends list?" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="10" adjustsLetterSpacingToFitWidth="YES" adjustsFontForContentSizeCategory="YES" translatesAutoresizingMaskIntoConstraints="NO" id="3Yc-6a-w1d">
-                                                        <rect key="frame" x="59" y="0.0" width="315" height="31"/>
-                                                        <fontDescription key="fontDescription" type="system" pointSize="19"/>
-                                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                        <nil key="highlightedColor"/>
-                                                    </label>
-                                                </subviews>
-                                            </stackView>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QY2-kz-Ztg">
-                                                <rect key="frame" x="88" y="617" width="238" height="60"/>
-                                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                <constraints>
-                                                    <constraint firstAttribute="height" constant="60" id="IQd-sY-l2t"/>
-                                                </constraints>
-                                                <fontDescription key="fontDescription" type="boldSystem" pointSize="30"/>
-                                                <state key="normal" title="Send Transfer">
-                                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                                </state>
-                                                <connections>
-                                                    <action selector="sendTransactionButtonAction:" destination="Bfn-tN-azN" eventType="touchUpInside" id="XMY-5I-3Sg"/>
-                                                </connections>
-                                            </button>
                                         </subviews>
                                         <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstItem="QY2-kz-Ztg" firstAttribute="top" secondItem="KhV-zH-Wex" secondAttribute="bottom" constant="90" id="1QG-Uh-T7f"/>
-                                            <constraint firstAttribute="trailing" secondItem="KhV-zH-Wex" secondAttribute="trailing" constant="20" id="4SZ-du-9K0"/>
-                                            <constraint firstItem="m6E-IU-V43" firstAttribute="top" secondItem="uBJ-va-IUJ" secondAttribute="bottom" constant="60" id="5to-2w-gmN"/>
-                                            <constraint firstAttribute="trailing" secondItem="m6E-IU-V43" secondAttribute="trailing" constant="100" id="H0S-04-cd6"/>
-                                            <constraint firstItem="uBJ-va-IUJ" firstAttribute="top" secondItem="xIi-bQ-bdo" secondAttribute="top" constant="20" id="M8v-zF-bci"/>
-                                            <constraint firstItem="KhV-zH-Wex" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="20" id="MfT-Qq-cgC"/>
-                                            <constraint firstAttribute="trailing" secondItem="QY2-kz-Ztg" secondAttribute="trailing" constant="88" id="Smr-ho-ZBP"/>
-                                            <constraint firstItem="QY2-kz-Ztg" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="88" id="W7y-vx-2sb"/>
-                                            <constraint firstItem="KhV-zH-Wex" firstAttribute="top" secondItem="m6E-IU-V43" secondAttribute="bottom" constant="60" id="ZDP-Xg-es9"/>
-                                            <constraint firstItem="uBJ-va-IUJ" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="20" id="gBc-mx-L5T"/>
-                                            <constraint firstAttribute="trailing" secondItem="uBJ-va-IUJ" secondAttribute="trailing" constant="20" id="lbF-di-N2G"/>
-                                            <constraint firstItem="m6E-IU-V43" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="100" id="xvi-9R-9ve"/>
+                                            <constraint firstItem="Y6F-vM-ceI" firstAttribute="leading" secondItem="xIi-bQ-bdo" secondAttribute="leading" constant="20" id="0Dm-aJ-xpS"/>
+                                            <constraint firstAttribute="trailing" secondItem="Y6F-vM-ceI" secondAttribute="trailing" constant="20" id="5GA-jX-GAj"/>
+                                            <constraint firstAttribute="bottom" secondItem="Y6F-vM-ceI" secondAttribute="bottom" constant="140" id="bm0-1d-c73"/>
+                                            <constraint firstItem="Y6F-vM-ceI" firstAttribute="top" secondItem="xIi-bQ-bdo" secondAttribute="top" constant="20" id="qj6-Li-K3Q"/>
                                         </constraints>
                                     </view>
                                 </subviews>
                                 <constraints>
-                                    <constraint firstItem="xIi-bQ-bdo" firstAttribute="height" secondItem="iug-c4-L0s" secondAttribute="height" priority="250" id="8Ju-am-Ksd"/>
-                                    <constraint firstItem="xIi-bQ-bdo" firstAttribute="width" secondItem="iug-c4-L0s" secondAttribute="width" id="Flx-YZ-idD"/>
                                     <constraint firstAttribute="bottom" secondItem="xIi-bQ-bdo" secondAttribute="bottom" id="GRV-5R-RAK"/>
-                                    <constraint firstItem="xIi-bQ-bdo" firstAttribute="centerY" secondItem="iug-c4-L0s" secondAttribute="centerY" id="hTt-xQ-Yd9"/>
+                                    <constraint firstItem="xIi-bQ-bdo" firstAttribute="width" secondItem="iug-c4-L0s" secondAttribute="width" id="M8l-hS-dOf"/>
                                     <constraint firstItem="xIi-bQ-bdo" firstAttribute="top" secondItem="iug-c4-L0s" secondAttribute="top" id="hyS-GD-P90"/>
                                     <constraint firstItem="xIi-bQ-bdo" firstAttribute="leading" secondItem="iug-c4-L0s" secondAttribute="leading" id="pTP-cl-Cld"/>
-                                    <constraint firstItem="xIi-bQ-bdo" firstAttribute="centerX" secondItem="iug-c4-L0s" secondAttribute="centerX" id="sbj-tB-HFc"/>
                                     <constraint firstAttribute="trailing" secondItem="xIi-bQ-bdo" secondAttribute="trailing" id="wWm-ke-Gee"/>
                                 </constraints>
                                 <viewLayoutGuide key="contentLayoutGuide" id="ixt-UH-3Z2"/>
@@ -436,10 +431,11 @@
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="iug-c4-L0s" secondAttribute="trailing" id="EKt-qd-6St"/>
-                            <constraint firstItem="iug-c4-L0s" firstAttribute="top" secondItem="9UW-9i-fEP" secondAttribute="top" id="JqD-Yj-fjE"/>
-                            <constraint firstItem="iug-c4-L0s" firstAttribute="leading" secondItem="yFm-Ad-QqU" secondAttribute="leading" id="SGV-W7-EO3"/>
-                            <constraint firstItem="9UW-9i-fEP" firstAttribute="bottom" secondItem="iug-c4-L0s" secondAttribute="bottom" id="iv2-Ut-S5S"/>
+                            <constraint firstItem="9UW-9i-fEP" firstAttribute="trailing" secondItem="iug-c4-L0s" secondAttribute="trailing" id="5No-u3-EmF"/>
+                            <constraint firstItem="iug-c4-L0s" firstAttribute="top" secondItem="9UW-9i-fEP" secondAttribute="top" id="Gis-ei-eDl"/>
+                            <constraint firstItem="iug-c4-L0s" firstAttribute="width" secondItem="yFm-Ad-QqU" secondAttribute="width" id="Pb9-4i-E6k"/>
+                            <constraint firstItem="iug-c4-L0s" firstAttribute="leading" secondItem="9UW-9i-fEP" secondAttribute="leading" id="V94-Fh-bN8"/>
+                            <constraint firstAttribute="bottom" secondItem="iug-c4-L0s" secondAttribute="bottom" id="lbf-78-mOC"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="9UW-9i-fEP"/>
                     </view>
