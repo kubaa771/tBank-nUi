@@ -64,6 +64,10 @@ class LoginPageViewController: UIViewController, Storyboarded {
         }
     }
     
+    override func viewDidAppear(_ animated: Bool) {
+        touchIdPopUp()
+    }
+    
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
@@ -134,9 +138,12 @@ class LoginPageViewController: UIViewController, Storyboarded {
     
     
     @IBAction func touchIdLoginAction(_ sender: UIButton) {
+        touchIdPopUp()
+    }
+    
+    func touchIdPopUp() {
         touchMe.authenticateUser() { [weak self] in
             self?.autoInsertLoginData()
-            //self?.performSegue(withIdentifier: "dismissLogin", sender: self)
         }
     }
     

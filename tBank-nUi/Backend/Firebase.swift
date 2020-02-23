@@ -12,6 +12,7 @@ import FirebaseAuth
 
 class FirebaseBackend {
     static let shared = FirebaseBackend()
+    var lastSnapshotTimestamp: NSNumber!
     
     func checkUserLogin(givenEmail: String, givenPassword: String, completion: @escaping (Bool) -> Void) {
         Auth.auth().signIn(withEmail: givenEmail, password: givenPassword) { (user, error) in
@@ -49,12 +50,12 @@ class FirebaseBackend {
                
         let ref = Database.database().reference().child("users")
         
-        let name: String = "John"
-        let surname: String = "Steward"
+        let name: String = "Someone"
+        let surname: String = "Stupid"
         let email: String = user.email!
         let id = user.uid
-        let money: Float = 543
-        let bankAccountNumber: String = "6542362177852345"
+        let money: Float = 210
+        let bankAccountNumber: String = "8095142326253554"
                
         let values = ["name" : name, "surname" : surname, "email" : email, "id" : id, "money" : money, "bankAccountNumber" : bankAccountNumber] as [String : Any]
         ref.child(id).updateChildValues(values) { (error, ref) in
@@ -86,7 +87,6 @@ class FirebaseBackend {
     func getTransactions(for userId: String, completion: @escaping (Array<Transaction>) -> Void) {
         
         let userTransactionRef = Database.database().reference().child("user-transactions").child(userId)
-        
         var transactions: [Transaction] = []
         let group = DispatchGroup()
         userTransactionRef.observeSingleEvent(of: .value) { (snapshot) in
@@ -114,6 +114,90 @@ class FirebaseBackend {
         
     }
     
+    func paginateData(emptyTransactionArray: Bool, userId: String, completion: @escaping (Array<Transaction>) -> Void) {
+        var userTransactionRef: DatabaseQuery!
+        var last: Bool = false
+        
+        if emptyTransactionArray {
+            userTransactionRef = Database.database().reference().child("user-transactions").child(userId).queryOrderedByValue().queryLimited(toLast: 6)
+            print("last 6 transacitons loaded")
+        } else {
+            userTransactionRef = Database.database().reference().child("user-transactions").child(userId).queryOrderedByValue().queryEnding(atValue: lastSnapshotTimestamp).queryLimited(toLast: 3)
+            print("next 3 transactions loaded")
+        }
+        
+        var transactions: [Transaction] = []
+        let group = DispatchGroup()
+        userTransactionRef.observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.children.allObjects.isEmpty {
+                return
+            }
+            for child in snapshot.children {
+                group.enter()
+                guard let childSnapshot = child as? DataSnapshot else {return}
+                let transactionId = childSnapshot.key
+                print(childSnapshot)
+                print(snapshot.children.allObjects.first as! DataSnapshot)
+                let lastSnapshot = snapshot.children.allObjects.first as? DataSnapshot
+                if childSnapshot.key == lastSnapshot?.key {
+                    last = true
+                }
+                
+                //ten ref tez zqueryowac zeby byl ordered i limited
+                let ref = Database.database().reference().child("transactions").child(transactionId)
+                
+                ref.observeSingleEvent(of: .value) { (transactionSnapshot) in
+                    guard let dictionary = transactionSnapshot.value as? [String:  Any] else { return }
+                    let transaction = Transaction()
+                    transaction.setValuesForKeys(dictionary)
+                    transactions.append(transaction)
+                    if last == true {
+                        self.lastSnapshotTimestamp = transaction.transactionDate
+                        print("TIMESTAMP: \(self.lastSnapshotTimestamp)")
+                        last = false
+                    }
+                    group.leave()
+                    print("added smth")
+                }
+            }
+            group.notify(queue: .main) {
+                transactions.sort { (t1, t2) -> Bool in
+                    let transactionDate1 = TimeInterval(Double(truncating: t1.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t1.transactionDate!)))
+                    let transactionDate2 = TimeInterval(Double(truncating: t2.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t2.transactionDate!)))
+                    return transactionDate1 > transactionDate2
+                }
+                completion(transactions)
+            }
+            
+            
+        }
+        
+        
+    }
+    
+    func getLatestTransaction(userId: String, completion: @escaping (Transaction) -> Void) {
+        let userTransactionRef = Database.database().reference().child("user-transactions").child(userId).queryOrderedByValue().queryLimited(toLast: 1)
+        
+        userTransactionRef.observeSingleEvent(of: .value) { (snapshot) in
+            if snapshot.children.allObjects.isEmpty {
+                return
+            }
+            for child in snapshot.children {
+                guard let childSnapshot = child as? DataSnapshot else {return}
+                let transactionId = childSnapshot.key
+                print(childSnapshot)
+
+                let ref = Database.database().reference().child("transactions").child(transactionId)
+                ref.observeSingleEvent(of: .value) { (transactionSnapshot) in
+                    guard let dictionary = transactionSnapshot.value as? [String:  Any] else { return }
+                    let transaction = Transaction()
+                    transaction.setValuesForKeys(dictionary)
+                    completion(transaction)
+                }
+            }
+        }
+    }
+    
     func manageNewMoneyTransfer(values: [String: Any], sender: User) {
         let ref = Database.database().reference().child("transactions").childByAutoId()
         ref.updateChildValues(values) { (err, dbref) in
@@ -127,12 +211,12 @@ class FirebaseBackend {
             
             guard let senderId = sender.id else { return }
             let senderTransactionRef = Database.database().reference().child("user-transactions").child(senderId).child(transactionId)
-            senderTransactionRef.setValue(1)
+            senderTransactionRef.setValue(values["transactionDate"]) //ustawic timestamp transakcji
             
             self.getUserBy(bankAccountNumber: receiverBankAccountNumber) { (receiver) in
                 guard let receiverId = receiver.id else { return }
                 let receiverTransactionRef = Database.database().reference().child("user-transactions").child(receiverId).child(transactionId)
-                receiverTransactionRef.setValue(1)
+                receiverTransactionRef.setValue(values["transactionDate"]) //ustawic timestamp transakcji
             }
             
             NotificationCenter.default.post(name: NotificationNames.refreshTransactionsData.notification, object: nil)

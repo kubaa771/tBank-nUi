@@ -164,7 +164,8 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
                 if addFriendSwitch.isOn {
                     FirebaseBackend.shared.addFriendForCurrentUserId(currentUser: user, friendBankAccount: filteredInputText, friendName: receiverNameTextField.text!)
                 }
-                navigationController?.popViewController(animated: true)
+                //navigationController?.popViewController(animated: true)
+                navigationController?.popToRootViewController(animated: true)
                 dismiss(animated: true, completion: nil) //TODO: this doesnt work?
                 
             } else {

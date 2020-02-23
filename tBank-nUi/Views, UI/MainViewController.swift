@@ -24,6 +24,7 @@ class MainViewController: UIViewController, Storyboarded {
     
     var user: User! = nil
     var transactions: [Transaction] = []
+    var fetchingMore: Bool = false
     
     override var preferredStatusBarStyle: UIStatusBarStyle {
         return .lightContent
@@ -39,7 +40,7 @@ class MainViewController: UIViewController, Storyboarded {
         tableView.delegate = self
         buttonView.layer.cornerRadius = 30
         buttonView.tappedClosure = newTransferButtonSegueClosure
-        NotificationCenter.default.addObserver(self, selector: #selector(getTransactionsData), name: NotificationNames.refreshTransactionsData.notification, object: nil)
+        NotificationCenter.default.addObserver(self, selector: #selector(getLatestTransaction), name: NotificationNames.refreshTransactionsData.notification, object: nil)
         //updateBackgroundImage(imageName: "redbackground.png")
         //updateView()
         updateUserData()
@@ -47,7 +48,6 @@ class MainViewController: UIViewController, Storyboarded {
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(longPressGestureRecognizer:)))
         longPressRecognizer.minimumPressDuration = 1.5
         view.addGestureRecognizer(longPressRecognizer)
-        
     }
     
     override func viewDidLayoutSubviews() {
@@ -69,7 +69,7 @@ class MainViewController: UIViewController, Storyboarded {
     func updateNavigationBar() {
         let walletLabel = UILabel()
         walletLabel.text = "Wallet"
-        walletLabel.font = UIFont.boldSystemFont(ofSize: 40.0)
+        walletLabel.font = UIFont(name: "Helvetica Neue", size: 40.0)//UIFont.boldSystemFont(ofSize: 40.0)
         navigationItem.leftBarButtonItem = UIBarButtonItem(customView: walletLabel)
         
         let profileImage = UIImage(systemName: "person")
@@ -96,25 +96,60 @@ class MainViewController: UIViewController, Storyboarded {
             let userNameInfo = (user.name ?? "") + " " + (user.surname ?? "")
             self.userNameLabel.text = userNameInfo
             let money = user.money as! Float
-            self.userMoneyLabel.text = String(money) + " $"
+            self.userMoneyLabel.text = String(format: "%.2f", money) + " $"
             var bankAccountNumber = user.bankAccountNumber!
             bankAccountNumber.translateBankAccountNumber()
             self.userAccountNumberLabel.text = bankAccountNumber
             self.user = user
-            self.getTransactionsData()
+            //self.getTransactionsData()
+            self.paginateData()
         }  
         
 
     }
-    
-    @objc func getTransactionsData() {
+     //no use
+    /*@objc func getTransactionsData() {
         FirebaseBackend.shared.getTransactions(for: self.user.id!) { (transactions) in
             self.transactions = transactions
+            /*self.transactions.sort { (t1, t2) -> Bool in
+                let transactionDate1 = TimeInterval(Double(truncating: t1.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t1.transactionDate!)))
+                let transactionDate2 = TimeInterval(Double(truncating: t2.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t2.transactionDate!)))
+                return transactionDate1 > transactionDate2
+            }*/
+            self.tableView.reloadData()
+        }
+    }*/
+    
+    @objc func getLatestTransaction() {
+        FirebaseBackend.shared.getLatestTransaction(userId: self.user.id!) { (transaction) in
+            self.transactions.append(transaction)
             self.transactions.sort { (t1, t2) -> Bool in
                 let transactionDate1 = TimeInterval(Double(truncating: t1.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t1.transactionDate!)))
                 let transactionDate2 = TimeInterval(Double(truncating: t2.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t2.transactionDate!)))
                 return transactionDate1 > transactionDate2
             }
+        }
+    }
+    
+    func paginateData() {
+        let isTransactionsArrayEmpty = transactions.isEmpty
+        fetchingMore = true
+        FirebaseBackend.shared.paginateData(emptyTransactionArray: isTransactionsArrayEmpty, userId: self.user.id!) { (transactionsDb) in
+            if self.transactions.contains(where: { (staticTransaction) -> Bool in
+                for trans in transactionsDb {
+                    if staticTransaction.transactionDate == trans.transactionDate {
+                        return true
+                    }
+                }
+                return false
+            }) {
+                let subSeq = transactionsDb.dropFirst()
+                self.transactions.append(contentsOf: subSeq)
+            } else {
+                self.transactions.append(contentsOf: transactionsDb)
+            }
+            
+            self.fetchingMore = false
             self.tableView.reloadData()
         }
     }
@@ -164,6 +199,14 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             
         }
         return cell
+    }
+    
+    func scrollViewDidScroll(_ scrollView: UIScrollView) {
+        if tableView.contentOffset.y >= (tableView.contentSize.height - tableView.frame.size.height) {
+            if !fetchingMore, user != nil {
+                paginateData()
+            }
+        }
     }
     
     @objc func longPress(longPressGestureRecognizer: UILongPressGestureRecognizer){
