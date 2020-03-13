@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -97,6 +97,62 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xVn-L9-bOK" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="-888.40579710144937" y="142.63392857142856"/>
+        </scene>
+        <!--Code Scanner View Controller-->
+        <scene sceneID="nCQ-Ay-BEw">
+            <objects>
+                <viewController storyboardIdentifier="QRCodeScannerViewController" id="pSc-kY-Lfb" customClass="QRCodeScannerViewController" customModule="tBank_nUi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="z71-a4-GrD">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor" cocoaTouchSystemColor="whiteColor"/>
+                        <viewLayoutGuide key="safeArea" id="Jcj-Us-VS9"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fhD-M3-EXw" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="134" y="-1300"/>
+        </scene>
+        <!--Profile View Controller-->
+        <scene sceneID="69j-fq-roa">
+            <objects>
+                <viewController storyboardIdentifier="ProfileViewController" id="izt-MS-Are" customClass="ProfileViewController" customModule="tBank_nUi" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="j6f-wj-3UG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="eFl-To-Wtp">
+                                <rect key="frame" x="62.5" y="80" width="250" height="250"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="250" id="mjY-K3-fJa"/>
+                                    <constraint firstAttribute="width" constant="250" id="sbg-E2-fcu"/>
+                                </constraints>
+                            </imageView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="a0d-4W-era">
+                                <rect key="frame" x="161" y="430" width="53" height="41"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="24"/>
+                                <state key="normal" title="Scan"/>
+                                <connections>
+                                    <action selector="scanButtonDidTapped:" destination="izt-MS-Are" eventType="touchUpInside" id="fZW-cX-nKP"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="a0d-4W-era" firstAttribute="centerX" secondItem="j6f-wj-3UG" secondAttribute="centerX" id="Exf-D2-11t"/>
+                            <constraint firstItem="a0d-4W-era" firstAttribute="top" secondItem="eFl-To-Wtp" secondAttribute="bottom" constant="100" id="FUm-lq-KFh"/>
+                            <constraint firstItem="eFl-To-Wtp" firstAttribute="centerX" secondItem="j6f-wj-3UG" secondAttribute="centerX" id="W7J-6t-SM3"/>
+                            <constraint firstItem="eFl-To-Wtp" firstAttribute="top" secondItem="riK-RO-4lF" secondAttribute="top" constant="80" id="ofM-Pp-DiI"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="riK-RO-4lF"/>
+                    </view>
+                    <connections>
+                        <outlet property="qrImageView" destination="eFl-To-Wtp" id="7gp-Qf-Ldz"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="mtd-O9-sij" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="133.59999999999999" y="-615.74212893553226"/>
         </scene>
         <!--Main View Controller-->
         <scene sceneID="tne-QT-ifu">

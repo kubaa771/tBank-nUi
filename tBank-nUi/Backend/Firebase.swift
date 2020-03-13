@@ -7,8 +7,7 @@
 //
 
 import Foundation
-import FirebaseDatabase
-import FirebaseAuth
+import Firebase
 
 class FirebaseBackend {
     static let shared = FirebaseBackend()

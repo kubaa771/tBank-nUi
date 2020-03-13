@@ -142,9 +142,12 @@ class LoginPageViewController: UIViewController, Storyboarded {
     }
     
     func touchIdPopUp() {
-        touchMe.authenticateUser() { [weak self] in
-            self?.autoInsertLoginData()
+        if loginButton.tag == loginButtonTag {
+            touchMe.authenticateUser() { [weak self] in
+                self?.autoInsertLoginData()
+            }
         }
+        
     }
     
     

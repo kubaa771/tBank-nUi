@@ -63,6 +63,21 @@ class MainCoordinator: Coordinator {
         navigationController.pushViewController(vc, animated: true)
     }
     
+    func openProfileVC(currentUser: User) {
+        let vc = ProfileViewController.instantiate()
+        vc.coordinator = self
+        vc.currentUser = currentUser
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    func scanQRCode(currentUser: User){
+        let vc = QRCodeScannerViewController.instantiate()
+        vc.coordinator = self
+        vc.currentUser = currentUser
+        navigationController.pushViewController(vc, animated: true)
+    }
+    
+    
     func didFinishTransfer() {
         
     }

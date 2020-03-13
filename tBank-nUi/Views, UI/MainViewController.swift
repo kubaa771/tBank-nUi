@@ -32,22 +32,26 @@ class MainViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateNavigationBar()
+        
         tableView.estimatedRowHeight = 90
         tableView.rowHeight = UITableView.automaticDimension
         tableView.tableFooterView = UIView()
         tableView.dataSource = self
         tableView.delegate = self
+        
         buttonView.layer.cornerRadius = 30
         buttonView.tappedClosure = newTransferButtonSegueClosure
+        
         NotificationCenter.default.addObserver(self, selector: #selector(getLatestTransaction), name: NotificationNames.refreshTransactionsData.notification, object: nil)
-        //updateBackgroundImage(imageName: "redbackground.png")
-        //updateView()
+        
+        updateNavigationBar()
         updateUserData()
+        
         //FirebaseBackend.shared.addExampleUserData()
         let longPressRecognizer = UILongPressGestureRecognizer(target: self, action: #selector(longPress(longPressGestureRecognizer:)))
         longPressRecognizer.minimumPressDuration = 1.5
         view.addGestureRecognizer(longPressRecognizer)
+        
     }
     
     override func viewDidLayoutSubviews() {
@@ -91,7 +95,7 @@ class MainViewController: UIViewController, Storyboarded {
     
     // MARK: Update backend
     
-    func updateUserData() {
+    @objc func updateUserData() {
         FirebaseBackend.shared.getUserData { (user) in
             let userNameInfo = (user.name ?? "") + " " + (user.surname ?? "")
             self.userNameLabel.text = userNameInfo
@@ -102,7 +106,12 @@ class MainViewController: UIViewController, Storyboarded {
             self.userAccountNumberLabel.text = bankAccountNumber
             self.user = user
             //self.getTransactionsData()
-            self.paginateData()
+            
+            if self.transactions.isEmpty {
+                self.paginateData()
+            } else {
+                self.getLatestTransaction()
+            }
         }  
         
 
@@ -122,12 +131,21 @@ class MainViewController: UIViewController, Storyboarded {
     
     @objc func getLatestTransaction() {
         FirebaseBackend.shared.getLatestTransaction(userId: self.user.id!) { (transaction) in
-            self.transactions.append(transaction)
+            print(transaction.transactionTitle)
+            if self.transactions.contains(where: {$0.transactionDate == transaction.transactionDate }) {
+                print("found")
+            } else {
+                print("not found, adding")
+                self.transactions.append(transaction)
+            }
+            
+            
             self.transactions.sort { (t1, t2) -> Bool in
                 let transactionDate1 = TimeInterval(Double(truncating: t1.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t1.transactionDate!)))
                 let transactionDate2 = TimeInterval(Double(truncating: t2.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t2.transactionDate!)))
                 return transactionDate1 > transactionDate2
             }
+            self.tableView.reloadData()
         }
     }
     
@@ -158,7 +176,8 @@ class MainViewController: UIViewController, Storyboarded {
     
     
     @objc func didTapProfileButtonAction(_ sender: AnyObject) {
-        print("profile")
+        guard let user = user else { return }
+        coordinator?.openProfileVC(currentUser: user)
     }
     
     @objc func didTapFriendsButtonAction(_ sender: AnyObject) {
@@ -228,5 +247,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     
        
 }
+
 
 

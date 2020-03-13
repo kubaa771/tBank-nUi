@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <Scheme
-   LastUpgradeVersion = "1100"
+   LastUpgradeVersion = "1130"
    version = "1.3">
    <BuildAction
       parallelizeBuildables = "YES"
@@ -15,7 +15,7 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "F7B2344ADB08A470508F03338C4FF3C8"
-               BuildableName = "Pods_tBank_nUi_tBank_nUiUITests.framework"
+               BuildableName = "libPods-tBank-nUi-tBank-nUiUITests.a"
                BlueprintName = "Pods-tBank-nUi-tBank-nUiUITests"
                ReferencedContainer = "container:Pods.xcodeproj">
             </BuildableReference>
