@@ -14,11 +14,13 @@ class ProfileViewController: UIViewController, Storyboarded {
     var currentUser: User! = nil
 
     @IBOutlet weak var qrImageView: UIImageView!
+    @IBOutlet weak var scanButton: UIButton!
     
     
     override func viewDidLoad() {
         super.viewDidLoad()
         loadQrImage()
+        setUpButton()
         // Do any additional setup after loading the view.
     }
     
@@ -32,11 +34,15 @@ class ProfileViewController: UIViewController, Storyboarded {
         
         print(stringToEncode)
         
-        var qrImage = QRGenerator(stringToEncode: stringToEncode)
+        let qrImage = QRGenerator(stringToEncode: stringToEncode)
         guard let ciImage = qrImage.getQRImage() else { return }
         let uiImage = UIImage(ciImage: ciImage)
         qrImageView.image = uiImage
         
+    }
+    
+    func setUpButton() {
+        scanButton.layer.cornerRadius = 35
     }
     
     

@@ -76,9 +76,9 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         let barCodeObject = videoPreviewLayer?.transformedMetadataObject(for: metadataObj)
         qrCodeFrameView?.frame = barCodeObject!.bounds
         if metadataObj.stringValue != nil && self.viewIfLoaded?.window != nil && !self.view.isHidden && !(self.navigationController?.visibleViewController?.isKind(of: NewTransferViewController.self))! && scan{
-            var stringValue = metadataObj.stringValue!
-            let names = stringValue.components(separatedBy: "+")[0]
-            let bankAccountNumber = stringValue.components(separatedBy: "+")[1]
+            let stringValue = metadataObj.stringValue!
+            guard let names = stringValue.components(separatedBy: "+").first else { return }
+            guard let bankAccountNumber = stringValue.components(separatedBy: "+").last else { return }
                 
             let friend = Friend(bankAccountNumber: bankAccountNumber, name: names)
             

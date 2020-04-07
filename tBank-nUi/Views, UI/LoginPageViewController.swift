@@ -74,10 +74,10 @@ class LoginPageViewController: UIViewController, Storyboarded {
   
     
     @IBAction func loginButtonAction(_ sender: UIButton) {
-        /*if checkLogin(email: emailTextField.text ?? "", password: passwordTextField.text ?? "") {
-            performSegue(withIdentifier: "dismissLogin", sender: self)
-        }*/
-        // Check that text has been entered into both the username and password fields.
+        loginWithGivenData()
+    }
+    
+    func loginWithGivenData() {
         guard let newAccountName = usernameTextField.text,
           let newPassword = passwordTextField.text,
           !newAccountName.isEmpty,
@@ -92,7 +92,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
         
         FirebaseBackend.shared.checkUserLogin(givenEmail: newAccountName, givenPassword: newPassword) { (matched) in
             if matched {
-                if sender.tag == self.createLoginButtonTag {
+                if self.loginButton.tag == self.createLoginButtonTag {
 
                     let hasLoginKey = UserDefaults.standard.bool(forKey: "hasLoginKey")
                     if !hasLoginKey && self.usernameTextField.hasText {
@@ -116,7 +116,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
                     //self.performSegue(withIdentifier: "dismissLogin", sender: self)
                     self.coordinator?.successfulLogin()
                     
-                } else if sender.tag == self.loginButtonTag {
+                } else if self.loginButton.tag == self.loginButtonTag {
                     self.coordinator?.successfulLogin()
                     //self.performSegue(withIdentifier: "dismissLogin", sender: self)
                     /*if self.checkLogin(username: newAccountName, password: newPassword) {
@@ -145,6 +145,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
         if loginButton.tag == loginButtonTag {
             touchMe.authenticateUser() { [weak self] in
                 self?.autoInsertLoginData()
+                self?.loginWithGivenData()
             }
         }
         
@@ -182,6 +183,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
             let keychainPassword = try passwordItem.readPassword()
             usernameTextField.text = username
             passwordTextField.text = keychainPassword
+            
         } catch {
             fatalError("Error reading password from keychain - \(error)")
         }
