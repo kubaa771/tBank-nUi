@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15705" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="16096" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait" appearance="light"/>
     <dependencies>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15706"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="16086"/>
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -195,7 +195,7 @@
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                     <subviews>
-                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="blackbg" translatesAutoresizingMaskIntoConstraints="NO" id="DHX-2O-iha">
+                                        <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="loginbg" translatesAutoresizingMaskIntoConstraints="NO" id="DHX-2O-iha">
                                             <rect key="frame" x="0.0" y="0.0" width="375" height="240"/>
                                             <color key="backgroundColor" cocoaTouchSystemColor="darkTextColor"/>
                                             <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -561,14 +561,13 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="1" translatesAutoresizingMaskIntoConstraints="NO" id="Pfo-f1-9J1">
-                                        <rect key="frame" x="0.0" y="201.5" width="245" height="91"/>
+                                        <rect key="frame" x="0.0" y="201.5" width="255" height="91"/>
                                         <subviews>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Email" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="s6C-9N-DIm">
-                                                <rect key="frame" x="0.0" y="0.0" width="245" height="45"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="255" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="uS1-ig-vMU"/>
-                                                    <constraint firstAttribute="width" constant="245" id="xVK-4h-mgY"/>
                                                 </constraints>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
@@ -580,11 +579,10 @@
                                                 </userDefinedRuntimeAttributes>
                                             </textField>
                                             <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="line" placeholder="Password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="pTA-Rz-auv">
-                                                <rect key="frame" x="0.0" y="46" width="245" height="45"/>
+                                                <rect key="frame" x="0.0" y="46" width="255" height="45"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="45" id="Wzk-73-rN7"/>
-                                                    <constraint firstAttribute="width" constant="245" id="fZD-D3-VbL"/>
                                                 </constraints>
                                                 <color key="textColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="16"/>
@@ -598,13 +596,12 @@
                                         </subviews>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="26" translatesAutoresizingMaskIntoConstraints="NO" id="Mnd-i3-ezR">
-                                        <rect key="frame" x="0.0" y="386.5" width="245" height="126"/>
+                                        <rect key="frame" x="0.0" y="386.5" width="255" height="126"/>
                                         <subviews>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="BSh-ds-LGJ">
-                                                <rect key="frame" x="0.0" y="0.0" width="245" height="50"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="255" height="50"/>
                                                 <color key="backgroundColor" red="0.58435120558375631" green="0.0" blue="0.010940054920091442" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="width" constant="245" id="xDc-Zv-qtO"/>
                                                     <constraint firstAttribute="height" constant="50" id="yc2-vq-bCg"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="17"/>
@@ -616,7 +613,7 @@
                                                 </connections>
                                             </button>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="wgf-XA-7pf">
-                                                <rect key="frame" x="97.5" y="76" width="50" height="50"/>
+                                                <rect key="frame" x="102.5" y="76" width="50" height="50"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="50" id="SCg-18-OSu"/>
                                                     <constraint firstAttribute="width" constant="50" id="Yic-or-Jfu"/>
@@ -627,8 +624,16 @@
                                                 </connections>
                                             </button>
                                         </subviews>
+                                        <constraints>
+                                            <constraint firstItem="BSh-ds-LGJ" firstAttribute="leading" secondItem="Mnd-i3-ezR" secondAttribute="leading" id="liH-OB-clX"/>
+                                            <constraint firstAttribute="trailing" secondItem="BSh-ds-LGJ" secondAttribute="trailing" id="r84-Yw-Wdo"/>
+                                        </constraints>
                                     </stackView>
                                 </subviews>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="Pfo-f1-9J1" secondAttribute="trailing" id="sYX-Nl-Wvx"/>
+                                    <constraint firstAttribute="trailing" secondItem="Mnd-i3-ezR" secondAttribute="trailing" id="yUT-XK-1a3"/>
+                                </constraints>
                             </stackView>
                         </subviews>
                         <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -653,7 +658,7 @@
     </scenes>
     <resources>
         <image name="Touch-icon-lg" width="138" height="137.5"/>
-        <image name="blackbg" width="612" height="369"/>
-        <image name="calendar" catalog="system" width="64" height="52"/>
+        <image name="calendar" catalog="system" width="128" height="106"/>
+        <image name="loginbg" width="626" height="438"/>
     </resources>
 </document>

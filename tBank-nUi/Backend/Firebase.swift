@@ -50,7 +50,7 @@ class FirebaseBackend {
         let ref = Database.database().reference().child("users")
         
         let name: String = "Someone"
-        let surname: String = "Stupid"
+        let surname: String = "Else"
         let email: String = user.email!
         let id = user.uid
         let money: Float = 210
