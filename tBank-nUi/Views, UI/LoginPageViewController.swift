@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 struct KeychainConfiguration {
   static let serviceName = "tBank-nUi"
@@ -18,6 +19,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
     weak var coordinator: MainCoordinator?
     
     let touchMe = BiometricIdAuth()
+    var player: AVPlayer?
     
     var passwordItems: [KeychainPasswordItem] = []
     let createLoginButtonTag = 0
@@ -34,7 +36,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        updateView()
+        playBackgroundVideo()
         let tap: UITapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(dismissKeyboard))
         view.addGestureRecognizer(tap)
         
@@ -114,6 +116,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
                     UserDefaults.standard.set(true, forKey: "hasLoginKey")
                     self.loginButton.tag = self.loginButtonTag
                     //self.performSegue(withIdentifier: "dismissLogin", sender: self)
+                    
                     self.coordinator?.successfulLogin()
                     
                 } else if self.loginButton.tag == self.loginButtonTag {
@@ -212,4 +215,25 @@ extension LoginPageViewController {
         updateBackgroundImage(imageName: "loginchoppedbg")
         loginButton.backgroundColor = UIColor(red: 0.062, green: 0.059, blue: 0.058, alpha: 1)
     }
+    
+    func playBackgroundVideo() {
+        let path = Bundle.main.path(forResource: "backgroundvideo", ofType: ".mp4")
+        player = AVPlayer(url: URL(fileURLWithPath: path!))
+        player!.actionAtItemEnd = AVPlayer.ActionAtItemEnd.none
+        let playerLayer = AVPlayerLayer(player: player)
+        playerLayer.videoGravity = .resizeAspectFill
+        playerLayer.frame = self.view.frame
+        self.view.layer.insertSublayer(playerLayer, at: 0)
+        NotificationCenter.default.addObserver(self, selector: #selector(playerDidReachEnd), name: NSNotification.Name.AVPlayerItemDidPlayToEndTime, object: player!.currentItem)
+        player!.seek(to: CMTime.zero)
+        player!.play()
+        self.player?.isMuted = true
+        
+    }
+        
+    @objc func playerDidReachEnd() {
+        player!.seek(to: CMTime.zero)
+    }
+        
+    
 }

@@ -1,6 +1,0 @@
-framework module Pods_tBank_nUi {
-  umbrella header "Pods-tBank-nUi-umbrella.h"
-
-  export *
-  module * { export * }
-}

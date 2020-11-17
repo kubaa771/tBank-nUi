@@ -27,6 +27,7 @@
 		8A684B9423C4F0A5006BC7AC /* NotificationNames.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A684B9323C4F0A5006BC7AC /* NotificationNames.swift */; };
 		8A684B9623C4F422006BC7AC /* NewTransferCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A684B9523C4F422006BC7AC /* NewTransferCoordinator.swift */; };
 		8A7F7EA023CFC1A90097E5B0 /* FriendsListViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A7F7E9F23CFC1A90097E5B0 /* FriendsListViewController.swift */; };
+		8A92451924D32E4C0028AFF7 /* backgroundvideo.mp4 in Resources */ = {isa = PBXBuildFile; fileRef = 8A92451824D32E4C0028AFF7 /* backgroundvideo.mp4 */; };
 		8A9D5F95235F6E6B0071E509 /* NewTransferViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */; };
 		8AB06EAA235795BC00DD551D /* KeychainPasswordItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */; };
 		8AB06EAC23579DA600DD551D /* TouchIdAuthentication.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */; };
@@ -85,6 +86,7 @@
 		8A684B9323C4F0A5006BC7AC /* NotificationNames.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationNames.swift; sourceTree = "<group>"; };
 		8A684B9523C4F422006BC7AC /* NewTransferCoordinator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransferCoordinator.swift; sourceTree = "<group>"; };
 		8A7F7E9F23CFC1A90097E5B0 /* FriendsListViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FriendsListViewController.swift; sourceTree = "<group>"; };
+		8A92451824D32E4C0028AFF7 /* backgroundvideo.mp4 */ = {isa = PBXFileReference; lastKnownFileType = file; path = backgroundvideo.mp4; sourceTree = "<group>"; };
 		8A9D5F94235F6E6B0071E509 /* NewTransferViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewTransferViewController.swift; sourceTree = "<group>"; };
 		8AB06EA9235795BC00DD551D /* KeychainPasswordItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = KeychainPasswordItem.swift; sourceTree = "<group>"; };
 		8AB06EAB23579DA600DD551D /* TouchIdAuthentication.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TouchIdAuthentication.swift; sourceTree = "<group>"; };
@@ -222,6 +224,14 @@
 			path = Backend;
 			sourceTree = "<group>";
 		};
+		8A92451724D32E3B0028AFF7 /* Assets */ = {
+			isa = PBXGroup;
+			children = (
+				8A92451824D32E4C0028AFF7 /* backgroundvideo.mp4 */,
+			);
+			path = Assets;
+			sourceTree = "<group>";
+		};
 		8AE13FA32353AEAA00E94DCA = {
 			isa = PBXGroup;
 			children = (
@@ -247,6 +257,7 @@
 		8AE13FAE2353AEAA00E94DCA /* tBank-nUi */ = {
 			isa = PBXGroup;
 			children = (
+				8A92451724D32E3B0028AFF7 /* Assets */,
 				8A7F7EA423CFC2840097E5B0 /* System Files */,
 				8A03ECC423C0F44E00A14E69 /* Coordinators */,
 				8A7F7EA523CFC29B0097E5B0 /* Backend */,
@@ -398,6 +409,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				8A92451924D32E4C0028AFF7 /* backgroundvideo.mp4 in Resources */,
 				8AE13FBC2353AEAC00E94DCA /* LaunchScreen.storyboard in Resources */,
 				8A0E7A6823578A5900B3179E /* GoogleService-Info.plist in Resources */,
 				8AE13FB92353AEAC00E94DCA /* Assets.xcassets in Resources */,
