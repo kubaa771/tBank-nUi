@@ -42,7 +42,6 @@ class LoginPageViewController: UIViewController, Storyboarded {
         
         let hasLogin = UserDefaults.standard.bool(forKey: "hasLoginKey")
         
-        // 2
         if hasLogin {
           loginButton.setTitle("Log In", for: .normal)
           loginButton.tag = loginButtonTag
@@ -74,7 +73,6 @@ class LoginPageViewController: UIViewController, Storyboarded {
         view.endEditing(true)
     }
   
-    
     @IBAction func loginButtonAction(_ sender: UIButton) {
         loginWithGivenData()
     }
@@ -115,30 +113,18 @@ class LoginPageViewController: UIViewController, Storyboarded {
                     
                     UserDefaults.standard.set(true, forKey: "hasLoginKey")
                     self.loginButton.tag = self.loginButtonTag
-                    //self.performSegue(withIdentifier: "dismissLogin", sender: self)
-                    
                     self.coordinator?.successfulLogin()
                     
                 } else if self.loginButton.tag == self.loginButtonTag {
                     self.coordinator?.successfulLogin()
-                    //self.performSegue(withIdentifier: "dismissLogin", sender: self)
-                    /*if self.checkLogin(username: newAccountName, password: newPassword) {
-                        self.performSegue(withIdentifier: "dismissLogin", sender: self)
-                    } else {
-                        self.showLoginFailedAlert()
-                    }*/
                 }
             } else {
                 print("You've given wrong account data, or this account doesn't exist!")
                 self.showLoginFailedAlert()
             }
         }
-          
-        // 3
         
     }
-    
-    
     
     @IBAction func touchIdLoginAction(_ sender: UIButton) {
         touchIdPopUp()
@@ -154,24 +140,19 @@ class LoginPageViewController: UIViewController, Storyboarded {
         
     }
     
-    
     func checkLogin(username: String, password: String) -> Bool {
-        //return email == self.username && password == self.password
-        
         guard username == UserDefaults.standard.value(forKey: "username") as? String else {
             return false
-          }
-            
-          do {
+        }
+        do {
             let passwordItem = KeychainPasswordItem(service: KeychainConfiguration.serviceName,
                                                     account: username,
                                                     accessGroup: KeychainConfiguration.accessGroup)
             let keychainPassword = try passwordItem.readPassword()
             return password == keychainPassword
-          } catch {
+        } catch {
             fatalError("Error reading password from keychain - \(error)")
-          }
-        
+        }
     }
     
     func autoInsertLoginData() {
@@ -228,7 +209,6 @@ extension LoginPageViewController {
         player!.seek(to: CMTime.zero)
         player!.play()
         self.player?.isMuted = true
-        
     }
         
     @objc func playerDidReachEnd() {

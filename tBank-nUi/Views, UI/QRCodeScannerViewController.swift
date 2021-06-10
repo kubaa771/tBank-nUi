@@ -29,7 +29,7 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
         let captureSession = AVCaptureSession()
 
         guard let captureDevice = AVCaptureDevice.default(for: .video) else {
-            print("Failed to get to the back phone camera")
+            self.showAlert(title: "Error", message: "Failed to get camera access")
             return
         }
         
@@ -58,7 +58,6 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
                 view.addSubview(qrCodeFrameView)
                 view.bringSubviewToFront(qrCodeFrameView)
             }
-            
             
         } catch {
             print(error)
@@ -90,7 +89,6 @@ class QRCodeScannerViewController: UIViewController, AVCaptureMetadataOutputObje
     }
     
     override func viewDidAppear(_ animated: Bool) {
-        print("appear")
         scan = true
     }
 }

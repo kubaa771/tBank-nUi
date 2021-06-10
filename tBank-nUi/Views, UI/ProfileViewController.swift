@@ -16,12 +16,10 @@ class ProfileViewController: UIViewController, Storyboarded {
     @IBOutlet weak var qrImageView: UIImageView!
     @IBOutlet weak var scanButton: UIButton!
     
-    
     override func viewDidLoad() {
         super.viewDidLoad()
         loadQrImage()
         setUpButton()
-        // Do any additional setup after loading the view.
     }
     
     func loadQrImage() {
@@ -32,8 +30,6 @@ class ProfileViewController: UIViewController, Storyboarded {
         
         let stringToEncode = "\(userNames)+\(userBankAccountNumber)"
         
-        print(stringToEncode)
-        
         let qrImage = QRGenerator(stringToEncode: stringToEncode)
         guard let ciImage = qrImage.getQRImage() else { return }
         let uiImage = UIImage(ciImage: ciImage)
@@ -42,27 +38,13 @@ class ProfileViewController: UIViewController, Storyboarded {
     }
     
     func setUpButton() {
-        scanButton.layer.cornerRadius = 35
+        scanButton.layer.cornerRadius = 20
     }
-    
-    
-    
     
     @IBAction func scanButtonDidTapped(_ sender: UIButton) {
         guard let currentUser = currentUser else { return }
         coordinator?.scanQRCode(currentUser: currentUser)
         
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
 
 }

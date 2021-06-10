@@ -142,8 +142,8 @@ class MainViewController: UIViewController, Storyboarded {
             
             
             self.transactions.sort { (t1, t2) -> Bool in
-                let transactionDate1 = TimeInterval(Double(truncating: t1.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t1.transactionDate!)))
-                let transactionDate2 = TimeInterval(Double(truncating: t2.transactionDate!))//NSDate(timeIntervalSince1970: TimeInterval(Double(t2.transactionDate!)))
+                let transactionDate1 = TimeInterval(Double(truncating: t1.transactionDate!))
+                let transactionDate2 = TimeInterval(Double(truncating: t2.transactionDate!))
                 return transactionDate1 > transactionDate2
             }
             self.tableView.reloadData()
@@ -175,7 +175,6 @@ class MainViewController: UIViewController, Storyboarded {
     
     // MARK: Buttons actions
     
-    
     @objc func didTapProfileButtonAction(_ sender: AnyObject) {
         guard let user = user else { return }
         coordinator?.openProfileVC(currentUser: user)
@@ -187,22 +186,10 @@ class MainViewController: UIViewController, Storyboarded {
     }
     
     func newTransferButtonSegueClosure() {
-        //performSegue(withIdentifier: "newTransferSegue", sender: nil)
         guard let user = user else { return }
         coordinator?.makeNewTransfer(currentUser: user)
         
     }
-    
-//    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-//        if segue.identifier == "newTransferSegue" {
-//            let nvc = segue.destination as! UINavigationController
-//            let vc = nvc.topViewController as! NewTransferViewController
-//            vc.user = self.user
-//        }
-//    }
-    
-    
-
 
 }
 
@@ -210,7 +197,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transactions.count
     }
-    
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
@@ -259,7 +245,6 @@ extension MainViewController: UITableViewDataSource, UITableViewDelegate {
             }
         }
     }
-    
        
 }
 

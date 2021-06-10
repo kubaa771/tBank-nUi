@@ -32,13 +32,10 @@ class HistoryContactCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
     }
     
     func updateView() {
@@ -49,28 +46,20 @@ class HistoryContactCell: UITableViewCell {
     }
     
     func customize(transaction: Transaction) {
-        //TODO: Initials
         updateView()
         let amount = transaction.amount as! Float
-        
         if transaction.senderBankAccountNumber == currentUser.bankAccountNumber {
-            // odejmuje kase
             nameLabel.text = transaction.receiverName
             balanceLabel.text = "-" + String(amount) + "$"
             balanceLabel.textColor = UIColor.red
             initialsLabel.text = transaction.receiverName!.createInitials()
         } else {
-            // dodaje kase
             nameLabel.text = transaction.senderName
             balanceLabel.text = "+" + String(amount) + "$"
             balanceLabel.textColor = UIColor.green
             initialsLabel.text = transaction.senderName!.createInitials()
         }
-        
-        //var bankAccountNumber = transactionUserBankAccountNumber
-        //bankAccountNumber?.translateBankAccountNumber()
         accountNumberLabel.text = transaction.transactionTitle
-        
     }
     
     func customizeForFriendsView(friend: Friend) {

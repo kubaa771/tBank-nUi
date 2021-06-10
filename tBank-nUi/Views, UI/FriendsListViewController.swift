@@ -29,7 +29,6 @@ class FriendsListViewController: UIViewController, Storyboarded {
             self.tableView.reloadData()
         }
     }
-    
 
 }
 

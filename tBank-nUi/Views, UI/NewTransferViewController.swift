@@ -44,8 +44,6 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
     
     func updateView() {
         sendTransferButton.layer.cornerRadius = 30
-        //scrollView.isScrollEnabled = true
-        //scrollView.contentSize = CGSize(width: 500, height: 1000)
     }
     
     @objc func dismissKeyboard() {
@@ -57,7 +55,6 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
 
         dateFormatter.dateStyle = DateFormatter.Style.short
         dateFormatter.timeStyle = DateFormatter.Style.short
-        
         
         transferDateTextField.text = dateFormatter.string(from: datePicker.date)
     }
@@ -94,7 +91,6 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
             print(stIndex)
             receiverAccNumberTextField.text?.insert("-", at: stIndex!)
         }*/
-        
     }
     
     func fulFillTextFields(bankAccountNumber: String, name: String) {
@@ -140,10 +136,9 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
             return
         }
         guard let filteredInputText = receiverAccNumberTextField.text?.components(separatedBy: "-").joined() else {
-            print("receiver's bank account number cannot be empty")
+            self.showAlert(title: "Error", message: "Receiver's bank account number cannot be empty")
             return
         }
-        print(filteredInputText.count)
         
         if receiverNameTextField.text != nil, transferAmountTextField.text != nil, transferTitleTextField != nil, filteredInputText.count == 16 {
             let _ = transferAmountTextField.text?.popLast()
@@ -168,11 +163,9 @@ class NewTransferViewController: UIViewController, UITextFieldDelegate, Storyboa
                 dismiss(animated: true, completion: nil) //TODO: this doesnt work?
                 
             } else {
-                print("your price value is not a number")
                 showAlert(title: "Wrong price value", message: "Your entered price value is invalid.")
             }
         } else {
-            print("insert proper values")
             showAlert(title: "Wrong values", message: "Check your fields once again. Entered values are invalid.")
         }
     }
