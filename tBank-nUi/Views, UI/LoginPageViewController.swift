@@ -41,7 +41,7 @@ class LoginPageViewController: UIViewController, Storyboarded {
         view.addGestureRecognizer(tap)
         
         let hasLogin = UserDefaults.standard.bool(forKey: "hasLoginKey")
-            
+        
         // 2
         if hasLogin {
           loginButton.setTitle("Log In", for: .normal)

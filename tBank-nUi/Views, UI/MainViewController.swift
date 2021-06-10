@@ -44,6 +44,7 @@ class MainViewController: UIViewController, Storyboarded {
         
         NotificationCenter.default.addObserver(self, selector: #selector(getLatestTransaction), name: NotificationNames.refreshTransactionsData.notification, object: nil)
         
+        updateView()
         updateNavigationBar()
         updateUserData()
         
@@ -64,7 +65,7 @@ class MainViewController: UIViewController, Storyboarded {
     
     func updateView() {
         moneyBackgroundImage.layer.masksToBounds = false
-        moneyBackgroundImage.layer.cornerRadius = 120
+        moneyBackgroundImage.layer.cornerRadius = 30
         moneyBackgroundImage.clipsToBounds = true
         moneyBackgroundImage.contentMode = UIView.ContentMode.scaleAspectFill
         //moneyBackgroundImage.image = UIImage(contentsOfFile: "blackbg.jpg")
@@ -208,6 +209,20 @@ class MainViewController: UIViewController, Storyboarded {
 extension MainViewController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return transactions.count
+    }
+    
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        let view = UIView(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: 30))
+        view.backgroundColor = .black
+
+        let label = UILabel(frame: CGRect(x: 15, y: 5, width: 200, height: 20))
+        label.text = "Transaction History"
+        label.font = .boldSystemFont(ofSize: 20)
+        label.textColor = .white
+        view.addSubview(label)
+        
+        return view
     }
        
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
